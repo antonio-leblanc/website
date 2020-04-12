@@ -85,7 +85,7 @@ header{
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     transition: all 0.3s ease 0s;
     color: var(--text-primary);
     text-decoration: none;
