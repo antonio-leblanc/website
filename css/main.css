@@ -25,6 +25,10 @@ body{
     line-height: 1.5;
 }
 
+body::-webkit-scrollbar-track-piece:start {
+    /* Select the top half (or left half) or scrollbar track individually */
+    background:var(--text-secondary);
+ }
 body::-webkit-scrollbar {
     width: 0.25rem;
   }
