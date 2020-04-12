@@ -119,10 +119,11 @@ svg {
 
 .box{
     height: 96vh;
+    padding-top: 4rem;
 }
 
 .intro-section{
-    background-image: url(../images/background.jpg);
+    background-image: url(../images/bg-insano.png);
     background-attachment: fixed;
     background-size: cover;
     display: flex;
@@ -149,7 +150,7 @@ svg {
 }
 
 .section-title{
-    color:var(--text-secondary);
+    color:whitesmoke;
     text-align: center;
     padding: 2rem;
 }
@@ -172,8 +173,10 @@ svg {
 }
 
 .about-img{
-    height: 70%;
-    margin: auto;
+    /* height: 7; */
+    height: 50%;
+    margin-top: 3rem;
+    border-radius: 50%;
 }
 
 .about-content{
@@ -181,11 +184,16 @@ svg {
 }
 
 .section-3{
-    background-image: url(../images/back2.jpg);
+    background-image: url(../images/snowboard.png);
     background-attachment: fixed;
     background-size: cover;
 }
 
+.section-bg-4{
+    background-image: url(../images/travel.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 .videos-container{
     margin: 0 10%;
@@ -215,3 +223,13 @@ footer{
     padding: 0;
 }
 
+.music{
+    background-color: rgb(255, 159, 159);
+}
+
+.sports{
+    background-color: chartreuse;
+}
+.travel{
+    background-color: rgb(205, 214, 81);
+}
