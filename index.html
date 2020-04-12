@@ -144,6 +144,7 @@
 
 <!-- ------------ Typed function ------------->
 <script type="text/javascript">
+      $(window).on("load",function(){
 	$(function(){
         $(".typed-element").typed({
             // strings: ["a Mechanical Engineer", "a Cyclist","a Data Scientist", 
@@ -155,6 +156,7 @@
             loop:true,
         });
     });
+      });
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
