@@ -6,63 +6,129 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="./images/favicon.ico">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.bootcss.com/typed.js/1.1.4/typed.min.js"></script>
+
+
     </head>
 
 <body>
+<a id="top"></a>
+<header>
+  <nav class="nav-container">
+    <ul class="navbar-links">
+      <li class="nav-item"><a class="nav-text" href="#top">Home</a></li>
+      <li class="nav-item"><a class="nav-text" href="#about">About</a></li>
+      <li class="nav-item"><a class="nav-text" href="#projects">Projects</a></li>
+      <li class="nav-item"><a class="nav-text" href="#music">Music</a></li>
+    </ul>
+    <ul class="navbar-links">
+      <li class="nav-item">
+        <a class="nav-icon" href="https://www.linkedin.com/in/antonio-leblanc/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" height="512pt" viewBox="0 0 512 512" width="512pt"><path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"/></svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-icon" href="https://github.com/antonio-leblanc" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" id="Bold" enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512"><path d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z"/></svg>
+          <!-- <object class= "nav-icon" type="image/svg+xml" data="images/github.svg"></object> -->
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-icon" href="https://www.youtube.com/channel/UCSSDzsX3hBaH05wc6ncPnCA" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" height="512pt" viewBox="0 0 512 512" width="512pt"><path d="m224.113281 303.960938 83.273438-47.960938-83.273438-47.960938zm0 0"/><path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm159.960938 256.261719s0 51.917969-6.585938 76.953125c-3.691406 13.703125-14.496094 24.507812-28.199219 28.195312-25.035156 6.589844-125.175781 6.589844-125.175781 6.589844s-99.878906 0-125.175781-6.851562c-13.703125-3.6875-24.507813-14.496094-28.199219-28.199219-6.589844-24.769531-6.589844-76.949219-6.589844-76.949219s0-51.914062 6.589844-76.949219c3.6875-13.703125 14.757812-24.773437 28.199219-28.460937 25.035156-6.589844 125.175781-6.589844 125.175781-6.589844s100.140625 0 125.175781 6.851562c13.703125 3.6875 24.507813 14.496094 28.199219 28.199219 6.851562 25.035157 6.585938 77.210938 6.585938 77.210938zm0 0"/></svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-icon" href="https://www.youtube.com/channel/UCSSDzsX3hBaH05wc6ncPnCA" target="_blank">
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M5,20.5A3.5,3.5 0 0,1 1.5,17A3.5,3.5 0 0,1 5,13.5A3.5,3.5 0 0,1 8.5,17A3.5,3.5 0 0,1 5,20.5M5,12A5,5 0 0,0 0,17A5,5 0 0,0 5,22A5,5 0 0,0 10,17A5,5 0 0,0 5,12M14.8,10H19V8.2H15.8L13.86,4.93C13.57,4.43 13,4.1 12.4,4.1C11.93,4.1 11.5,4.29 11.2,4.6L7.5,8.29C7.19,8.6 7,9 7,9.5C7,10.13 7.33,10.66 7.85,10.97L11.2,13V18H13V11.5L10.75,9.85L13.07,7.5M19,20.5A3.5,3.5 0 0,1 15.5,17A3.5,3.5 0 0,1 19,13.5A3.5,3.5 0 0,1 22.5,17A3.5,3.5 0 0,1 19,20.5M19,12A5,5 0 0,0 14,17A5,5 0 0,0 19,22A5,5 0 0,0 24,17A5,5 0 0,0 19,12M16,4.8C17,4.8 17.8,4 17.8,3C17.8,2 17,1.2 16,1.2C15,1.2 14.2,2 14.2,3C14.2,4 15,4.8 16,4.8Z"></path>
+        </svg>
+        </a>
+      </li>
 
-<header class="site-header">
-<div class="topnav">
-  <a href="#home">Home</a>
-  <a href="./routes/about.html">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#music">Music</a>
-  <a id=icon href="https://www.linkedin.com/in/antonio-leblanc/"><img class="navbar-icon" src="images/lkin.png"></a>
-</div>
+    </ul>
+  </nav>
 </header>
-
 <div class="empty-header"></div>
 
-<div class="content">
 
-<div class="top-container">
-    <h1>I'm Antonio</h1>
-    <p>A Machine Learning Engineer</p>
-    <img class="intro-img" src="images/chip.png">
-</div> 
-
-<div class="profile">
-    <h2>Hello.</h2>
-    <p>Lorem ipsum dolor sit amet, vitae volutpat, dui conubia, dolor urna. Non auctor, montes nulla distinctio.</p>
-  </div>
-  <hr>
-  <div class="skills">
-    <h2>My Skills.</h2>
-    <div class="skill-row">
-      <h3>Lorem &amp; Ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, quis in duis, iaculis id felis. Consectetuer vestibulum, nunc urna lectus, erat ligula. Hendrerit nam, lectus ante, ut lorem eros.</p>
+<div class="section-1">
+  <div class="intro">
+	  <h1 class="title-name">Antonio Leblanc</h1>
+    <div class="typed">
+      <p>I am <span class="typed-element"></span></p>
     </div>
-    <div class="skill-row">
+  </div>
+</div>
+
+
+<div id= "about" class="about">
+  <h1>About Me</h1>
+</div>
+
+
+    
+<div class="skill-row">
       <img class="" src="images/programmer.png">
-      <h3>Lorem Ipsum Dolor</h3>
-      <p>Lorem ipsum dolor sit amet, mauris sed consectetuer. Etiam et eu, bibendum interdum, lacus quis mauris. Curabitur wisi, quisque vel eu, rutrum nam.</p>
-    </div>
-  </div>
-  <hr>
-  <div class="contact-me">
-    <h2>Get In Touch</h2>
-    <h3>Lorem ipsum dolor sit amet, non elit.</h3>
-    <p>Lorem ipsum dolor sit amet, in quis, aenean amet. Phasellus sodales, tellus donec dui, ornare erat.</p>
-    <a class="btn" href="mailto:name@email.com">CONTACT ME</a>
-  </div>
+      <h2>Education</h2>
+      <ul>
+        <li>Ecole Centrale de Lyon</li>
+        <li>Universidade Federal do Rio de Janeiro</li>
+        <li>Lycee Moliere</li>
+      </ul>
+</div>
+
+<hr>
+
+<div class="skill-row">
+  <img class="" src="images/chip.png">
+  <h2>Work Experience</h2>
+  <ul>
+    <li>Sintecsys : Machine Learning Engineer</li>
+    <li>Radix : Data Science Intern</li>
+    <li>Amazon : Operations Management Intern</li>
+  </ul>
+</div>
+
+<div class="section-3"></div>
+
+<div id= "music" class='music'>
+  <h1>Music</h1>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/bLVWiq8Z1cU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 </div>
 
 
-<div class="bottom-container">
-  <a class="footer-link" href="https://www.linkedin.com/in/antonio-leblanc/">LinkedIn</a>
+
+<footer>
   <p>© 2020 Antonio Leblanc.</p>
-</div>
+</footer>
 
-</div>
+<!-- ------------ Typed function ------------->
+<script type="text/javascript">
+	$(function(){
+        $(".typed-element").typed({
+            strings: ["a Mechanical Engineer", "a Cyclist","a Data Scientist", 
+             "a Pianist","a Developper","a Skateboarder", "an Adventurer"],
+            typeSpeed: 40,
+            backSpeed: 20,
+            loop:true,
+        });
+    });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+      });
+  });
+  });
+
+</script>
+
+
 </body>
-
 </html>
