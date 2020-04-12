@@ -4,7 +4,8 @@
     --text-primary: #e6f1ff;
     --text-secondary: yellow; 
     --bg-header: black;
-    --bg-primary: #333;
+    /* --bg-primary: black; */
+    --bg-primary: #0a192f;
     --bg-secondary: #333;
     --transition-speed: 600ms;
   }
@@ -21,6 +22,7 @@ body{
     background-color: var(--bg-primary);
     color:var(--text-primary);
     text-align: center;
+    line-height: 1.5;
 }
 
 body::-webkit-scrollbar {
@@ -115,59 +117,85 @@ svg {
   }
 
 
-.section-1{
-    height: 100vh;
+.box{
+    height: 96vh;
+}
+
+.intro-section{
     background-image: url(../images/background.jpg);
     background-attachment: fixed;
     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-text{
+
+    text-align: left;
+}
+
+.title-name{
+    font-family: 'Poiret One', cursive;
+    font-size: 6.5rem;
+}
+
+.typed-sentence{
+    font-size: 4rem;
+}
+
+.typed-element{
+    color:var(--text-secondary)
+}
+
+.section-title{
+    color:var(--text-secondary);
+    text-align: center;
+    padding: 2rem;
+}
+
+.about-section{
+    display: flex;
+    align-items: flex-start; 
+    text-align: left;
+    margin: 0 20%;
+    justify-content: space-between;
+
+}
+
+.about-section p{
+    padding-bottom: 1rem;    
+}
+
+.about-section ul{
+    list-style-position: inside;
+}
+
+.about-img{
+    height: 70%;
+    margin: auto;
+}
+
+.about-content{
+    margin-left: 3%;
 }
 
 .section-3{
     background-image: url(../images/back2.jpg);
     background-attachment: fixed;
     background-size: cover;
-    height: 600px;
-}
-
-.intro{
-    padding-top: 30vh;
-    margin-left: 35%;
-}
-
-.title-name{
-    text-align: left;
-    font-family: 'Poiret One', cursive;
-    font-size: 6rem;
-}
-.typed{
-    text-align: left;
-    font-size: 4rem;
 }
 
 
-
-.content{
-    margin:0 20% ;
+.videos-container{
+    margin: 0 10%;
+    display:flex;
+    justify-content: space-around;
 }
 
-
-span{
-    color:yellow;
-}
-
-
-.skill-row{
-    width:50%;
-    margin:50px auto;
-    text-align: left;
-    line-height: 1.5;
-
-}
-
-.skill-row img{
-    width: 25%;
-    float: left;
-    margin-right: 5% ;
+.videos-container iframe{
+    /* width: 30%; */
+    /* height: 315; */
 }
 
 .longblock {
