@@ -119,7 +119,12 @@ svg {
 .nav-icon:hover {
     fill: var(--text-secondary);
   }
-
+  
+  #logo:hover svg,
+  #logo:hover {
+    transform: rotate(-180deg);
+    transition: 1s;  
+    }
 
 .box{
     height: 96vh;
@@ -142,7 +147,7 @@ svg {
 
 .title-name{
     font-family: 'Poiret One', cursive;
-    font-size: 6.5rem;
+    font-size: 7.5rem;
 }
 
 .typed-sentence{
