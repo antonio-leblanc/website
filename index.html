@@ -8,12 +8,12 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap" rel="stylesheet">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.bootcss.com/typed.js/1.1.4/typed.min.js"></script>
-
-
     </head>
 
 <body>
 
+
+<!-- ------ LOADER ------ -->
   <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>
   </div>
@@ -22,9 +22,10 @@
         $(".loader-wrapper").fadeOut("slow");
       });
   </script>
+<!-- --------------------- -->
 
 
-
+<!-- ------- HEADER ----------- -->
 <a id="top"></a>
 <header>
   <nav class="nav-container">
@@ -67,17 +68,22 @@
 </header>
 <div class="empty-header"></div>
 
+<!-- ------- Opening ----------- -->
 
-<div class="intro-section section">
+<div class="opening section">
   <div class="intro-text">
 	  <h1 class="title-name">Antonio Leblanc</h1>
     <p class="typed-sentence"><span class="typed-element"></span></p>
   </div>
 </div>
 
+<!-- ------- Sections ----------- -->
+
 <div class='section' id="about">
   <div class="sub-section">
-    <img class="rounded-img" src='images/about_me.jpeg'>
+    <div class="img-container">
+      <img class="rounded-img" src='images/about_me.jpeg'>
+    </div>
     <div class="sub-section-content">
       <h1 class="section-title">About Me</h1>
 
@@ -98,56 +104,70 @@
 
   <div class="sub-section">
     <div class="sub-section-content">
-
       <h1 class="section-title">Education</h1>
-            
       <div>
         <p>Ecole Centrale de Lyon</p>
         <p>Universidade Federal do Rio de Janeiro</p>
       </div>
     </div>
-    <img class="rounded-img" src='images/centrale.png'>
+    <div class="img-container">
+      <img class="rounded-img" src='images/centrale.png'>
+    </div>
   </div>
 
 
   <div class="sub-section">
-    
-    <ul>
-      <li>Sintecsys : Machine Learning Engineer</li>
-      <li>Radix : Data Science Intern</li>
-      <li>Amazon : Operations Management Intern</li>
-    </ul>
-    <h1 class="section-title">Work</h1>
-
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/dtMUfxGnLtw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+      <div class="sub-section-content">
+      <h1 class="section-title">Work</h1>
+      <ul>
+        <li>Sintecsys : Machine Learning Engineer</li>
+        <!-- <a href="https://albiziaproject.wixsite.com/albizia/sintecsys">Albizia interview</a> -->
+        <li>Radix : Data Science Intern</li>
+        <li>Amazon : Operations Management Intern</li>
+      </ul>
+    </div>
   </div>
 </div>
 
+<!-- ------- Music ----------- -->
 
-  <div class="section-3 section"></div>
-    <!-- <img class="" src="images/programmer.png"> -->
-
-
-
+<div class="bg-img-2 section"></div>
 
 <div id= "music" class='music section'>
   <h1 class="section-title">Music</h1>
   <div class="videos-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/bLVWiq8Z1cU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/W66ZKp2BfPU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/bLVWiq8Z1cU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">  
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/W66ZKp2BfPU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
+</div>
 
+<!-- ------- Sports ----------- -->
 
-<div class="section-bg-4 section"></div>
-
+<div class="bg-img-3 section"></div>
 
 <div id= "sports" class='sports section'>
   <h1 class="section-title">Sports</h1>
   <div class="videos-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/rY_qraWPbE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/hujT56Uxczk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/rY_qraWPbE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>  
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/hujT56Uxczk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
+</div>
+
+<!-- ------- Travel ----------- -->
+
+<div class="bg-img-4 section"></div>
+
 
 <div id= "travel" class='travel section'>
   <h1 class="section-title">Coming Soon</h1>
@@ -173,6 +193,7 @@
     });
       });
 
+  //  <!-- ------------ Slide do sections ------------->
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
       e.preventDefault();
