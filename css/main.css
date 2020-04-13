@@ -14,7 +14,6 @@
     box-sizing: border-box;
     margin: 0 ;
     padding: 0;
-    border: 0;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -25,13 +24,12 @@ body{
     line-height: 1.5;
 }
 
-body::-webkit-scrollbar-track-piece:start {
-    /* Select the top half (or left half) or scrollbar track individually */
-    background:var(--text-secondary);
- }
 body::-webkit-scrollbar {
     width: 0.25rem;
   }
+body::-webkit-scrollbar-track-piece:start {
+    background:var(--text-secondary);
+}
   body::-webkit-scrollbar-track {
     background: var(--bg-primary);
   }
@@ -66,7 +64,7 @@ header{
 
 .nav-container {
     position: relative;
-    left: 15%;
+    margin: auto;
     width: 70%;
     height: 100%;
     display: flex;
@@ -126,8 +124,8 @@ svg {
     transition: 1s;  
     }
 
-.box{
-    height: 96vh;
+.section{
+    min-height: 96vh;
     padding-top: 4rem;
 }
 
@@ -164,7 +162,7 @@ svg {
     padding: 2rem;
 }
 
-.about-section{
+.sub-section{
     display: flex;
     align-items: flex-start; 
     text-align: left;
@@ -173,17 +171,17 @@ svg {
 
 }
 
-.about-section p{
+.sub-section p{
     padding-bottom: 1rem;    
 }
 
-.about-section ul{
+.sub-section ul{
     list-style-position: inside;
 }
 
-.about-img{
+.rounded-img{
     /* height: 7; */
-    height: 50%;
+    height: 400px;
     margin-top: 3rem;
     border-radius: 50%;
 }
@@ -215,17 +213,6 @@ svg {
     /* height: 315; */
 }
 
-.longblock {
-	display: flex;
-	justify-content: flex-start;
-	margin-bottom:50px;
-}	
-
-.longblock .left {
-	flex: 0 1 200px;
-	min-width: 180px;
-	vertical-align: text-top;
-}
 
 footer{
     margin: 0;
