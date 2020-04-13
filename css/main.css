@@ -55,6 +55,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    display: hidden;
 }
 
 
@@ -65,9 +66,8 @@ header{
 /* ----------- NavBar --------- */
 .nav-container {
     position: relative;
-    margin: auto;
     width: 70%;
-    /* min-width: 800px; */
+    margin: auto;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -150,53 +150,58 @@ svg {
 }
 
 
-.sub-section{
+.subsection{
     display: flex;
     align-items: center; 
     text-align: left;
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
-.sub-section p{
+.subsection p{
     padding-bottom: 1rem;    
 }
 
-.sub-section ul{
+.subsection ul{
     list-style-position: inside;
 }
 
-
-.sub-section-content{
-    margin-left: 3%; 
+.subsection-content{
+    margin: 0 3%; 
 }
 
+.subsection-fix-video{
+    width: min(500px, 90vw);
+}
+
+.subsection-2videos{
+    display:flex;
+    align-items: center;
+    width : 90%;
+    margin: auto; 
+}
+
+.subsection-var-video{
+    width: 45%;
+}
 /* ----------- Image - Videos --------- */
 
 .img-container{
-    width: 400;
-    height:400px;
+    /* height: min(400px, 90vw);
+    width: min(400px, 90vw); */
 }
 
 .rounded-img{
     object-fit: cover;
     border-radius: 50%;
-    height: 400px;
-    width: 400px;
-    max-height: 95vh;
-    max-width: 95vh;
-}
-
-.videos-container{
-    display:flex;
-    align-items: center; 
+    height: min(400px, 90vw);
+    width: min(400px, 90vw);
 }
 
 
 .video-container{
     position: relative;
     overflow: hidden;
-    padding-top: 56.25%;
-    width: 100%;
+    padding-bottom: 56.25%;
 }
 
 .resp-iframe{
@@ -205,38 +210,41 @@ svg {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0;
 }
 
 /* ----------- Responsive --------- */
 
 @media screen and (min-width: 900px){
-    .sub-section{
+    .subsection{
         width: 900px;
         margin: auto;
         justify-content: space-between;   
     }
     
-    .videos-container{
-        width : 90%;
-        margin: auto;
+    .subsection-2videos{
         justify-content: space-around;
     }
     
 }
 
 @media screen and (max-width: 900px){
-    .sub-section{
-        margin: 0 5%;
+    .nav-container {
+        width: 100%;
+    }
+    
+    .subsection{
+        margin: 0;
         flex-direction: column;
     }
-    .videos-container{
-        width : 90%;
-        margin: auto;
+    .subsection-2videos{
         flex-direction: column;
     }
     
-    .sub-section-content{
+    .subsection-var-video{
+        width: 100%;
+        padding-bottom: 3rem;
+    }
+    .subsection-content{
         order:-1;
     }
 
@@ -257,11 +265,11 @@ svg {
 
 .title-name{
     font-family: 'Poiret One', cursive;
-    font-size: 7.5rem;
+    font-size: min(20vw,7.5rem);
 }
 
 .typed-sentence{
-    font-size: 4rem;
+    font-size: min(10vw,4rem);
 }
 
 .typed-element{
@@ -271,7 +279,7 @@ svg {
 /* -- Other sections -- */
 
 .music{
-    background-color: rgb(255, 159, 159);
+    background-color: rgb(41, 255, 255);
 }
 
 .sports{
