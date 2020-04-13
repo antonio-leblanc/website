@@ -75,10 +75,10 @@
   </div>
 </div>
 
-<div class='section'>
-  <div class="sub-section" id="about">
+<div class='section' id="about">
+  <div class="sub-section">
     <img class="rounded-img" src='images/about_me.jpeg'>
-    <div class="about-content">
+    <div class="sub-section-content">
       <h1 class="section-title">About Me</h1>
 
       <p>Hello there!</p>
@@ -97,7 +97,7 @@
   </div>
 
   <div class="sub-section">
-    <div class="about-content">
+    <div class="sub-section-content">
 
       <h1 class="section-title">Education</h1>
             
@@ -143,8 +143,10 @@
 
 <div id= "sports" class='sports section'>
   <h1 class="section-title">Sports</h1>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/rY_qraWPbE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/hujT56Uxczk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="videos-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/rY_qraWPbE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/hujT56Uxczk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 </div>
 
 <div id= "travel" class='travel section'>
@@ -163,7 +165,7 @@
             // strings: ["a Mechanical Engineer", "a Cyclist","a Data Scientist", 
             //  "a Pianist","a Web Developer","a Skateboarder", "an Adventurer"],
             strings: ["Mechanical Engineering", "Cycling","Data Science", 
-             "Piano","Software Development","Skateboarding ", "Adventure"],
+             "Piano","Software Development","Skateboarding", "Adventure"],
             typeSpeed: 40,
             backSpeed: 20,
             loop:true,
