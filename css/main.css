@@ -1,5 +1,5 @@
 :root {
-    /* font-size: 16px;*/
+    font-size: 16px;
     --text-primary: #e6f1ff;
     --text-secondary: #fdee00; 
     --bg-header: black;
@@ -62,6 +62,7 @@ header{
     height: var(--header-height);
 }
 
+/* ----------- NavBar --------- */
 .nav-container {
     position: relative;
     margin: auto;
@@ -127,7 +128,13 @@ svg {
 
 
 
-/* ----------- Sections --------- */
+/* ----------- Generic --------- */
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .section{
     min-height: 100vh;
@@ -136,15 +143,116 @@ svg {
     background-size: cover;
 }
 
-.opening{
-    background-image: url(../images/bg-insano.png);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.section-title{
+    color:whitesmoke;
+    text-align: center;
+    padding: 2rem;
 }
 
+
+.sub-section{
+    display: flex;
+    align-items: center; 
+    text-align: left;
+    padding-top: 2rem;
+}
+
+.sub-section p{
+    padding-bottom: 1rem;    
+}
+
+.sub-section ul{
+    list-style-position: inside;
+}
+
+
+.sub-section-content{
+    margin-left: 3%; 
+}
+
+/* ----------- Image - Videos --------- */
+
+.img-container{
+    width: 400;
+    height:400px;
+}
+
+.rounded-img{
+    object-fit: cover;
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+    max-height: 95vh;
+    max-width: 95vh;
+}
+
+.videos-container{
+    display:flex;
+    align-items: center; 
+}
+
+
+.video-container{
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+    width: 100%;
+}
+
+.resp-iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ----------- Responsive --------- */
+
+@media screen and (min-width: 900px){
+    .sub-section{
+        width: 900px;
+        margin: auto;
+        justify-content: space-between;   
+    }
+    
+    .videos-container{
+        width : 90%;
+        margin: auto;
+        justify-content: space-around;
+    }
+    
+}
+
+@media screen and (max-width: 900px){
+    .sub-section{
+        margin: 0 5%;
+        flex-direction: column;
+    }
+    .videos-container{
+        width : 90%;
+        margin: auto;
+        flex-direction: column;
+    }
+    
+    .sub-section-content{
+        order:-1;
+    }
+
+}
+
+/* -- BG IMAGES -- */
+.bg-img-1{background-image: url(../images/bg-insano.png);}
+.bg-img-2{background-image: url(../images/snowboard.png);}
+.bg-img-3{background-image: url(../images/travel.png);}
+.bg-img-4{background-image: url(../images/adventure.jpg);}
+
+
+/* -- intro section -- */
 .intro-text{
     text-align: left;
+    margin: 2rem;
 }
 
 .title-name{
@@ -160,92 +268,7 @@ svg {
     color:var(--text-secondary)
 }
 
-.section-title{
-    color:whitesmoke;
-    text-align: center;
-    padding: 2rem;
-}
-
-@media (min-width: 900px){
-    .sub-section{
-        text-align: left;
-        margin: 0 20%;
-        display: flex;
-        align-items: center; 
-        justify-content: space-between;   
-    }
-
-    .videos-container{
-        width : 90%;
-        margin: auto;
-        display:flex;
-        justify-content: space-around;
-    }
-    
-}
-
-@media (max-width: 900px){
-    .sub-section{
-        margin: 0 5%;
-        display: flex;
-        text-align: left;
-        flex-direction: column;
-        align-items: center; 
-    }
-    .videos-container{
-        width : 90%;
-        margin: auto;
-        display:flex;
-        flex-direction: column;
-        align-items: center; 
-    }
-}
-
-.sub-section p{
-    padding-bottom: 1rem;    
-}
-
-.sub-section ul{
-    list-style-position: inside;
-}
-
-
-.sub-section-content{
-    margin-left: 3%;
-    
-}
-
-
-.img-container{
-    width: 400;
-    height:400px;
-}
-
-.video-container{
-    padding: 2rem;
-}
-
-.rounded-img{
-    height: 100%;
-    border-radius: 50%;
-     }
-
-.bg-img-2{
-    background-image: url(../images/snowboard.png);
-}
-.bg-img-3{
-    background-image: url(../images/travel.png);
-}
-
-.bg-img-4{
-    background-image: url(../images/travel.png);
-}
-
-
-.videos-container iframe{
-padding-bottom: 2 rem;
-}
-
+/* -- Other sections -- */
 
 .music{
     background-color: rgb(255, 159, 159);
