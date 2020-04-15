@@ -53,26 +53,24 @@ a:hover{
 }
 
 p{
-    padding-top: 1rem;    
+    padding-bottom: 1rem;    
     line-height: 1.5;
 }
 ul{
     list-style-position: inside;
 }
-li{
-    padding-left: 1rem;
-}
+
 /* ----------- HEADER --------- */
 
 header{
-    background-color: var(--bg-header);
+    width: 100vw;
+    padding: 0 15vw;
+    height: var(--header-height);
     position: fixed;
     top: 0;
     z-index: 1;
-    width: 100%;
-    height: var(--header-height);
+    background-color: var(--bg-header);
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -82,15 +80,6 @@ header{
 }
 
 /* ----------- NavBar --------- */
-.navbar-container {
-    position: relative;
-    width: 70%;
-    margin: auto;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .navbar{
     list-style: none;
@@ -146,7 +135,14 @@ svg {
     transition: 1s;  
 }
 
+#logos-navbar{
+    margin-left: auto;
+}
 
+#toggle-menu{
+    margin-left: auto;
+    display:none
+}
 
 /* ----------- Generic --------- */
 
@@ -169,7 +165,6 @@ svg {
     padding-bottom: 2rem;
 }
 
-
 .subsection{
     display: flex;
     /* align-items: center;  */
@@ -190,7 +185,8 @@ svg {
     display:flex;
     align-items: center;
     width : 90%;
-    margin: auto; 
+    margin: auto;
+    justify-content: space-around;
 }
 
 .subsection-var-video{
@@ -202,6 +198,10 @@ svg {
     background-attachment: fixed;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.section li{
+    padding-left: 1rem;
 }
 /* ----------- Image - Videos --------- */
 
@@ -242,17 +242,21 @@ svg {
         justify-content: space-between;   
     }
     
-    .subsection-2videos{
-        justify-content: space-around;
-    }
-    
 }
 
 @media screen and (max-width: 900px){
-    .navbar-container {
-        width: 100%;
+    header {
+        padding: 0 5vw;
     }
-    
+
+    #toggle-menu{
+        display:block
+    }
+
+    .navbar{
+        display:none
+    }
+
     .subsection{
         margin: 0;
         flex-direction: column;
