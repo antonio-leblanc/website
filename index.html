@@ -43,11 +43,9 @@
     <li class="nav-item"><a class="nav-text" href="#music">Music</a></li>
     <li class="nav-item"><a class="nav-text" href="#sports">Sports</a></li>
     <li class="nav-item"><a class="nav-text" href="#travel">Travel</a></li>
-  </ul>
 
   <!-- <object class= "nav-icon" type="image/svg+xml" data="images/open-menu.svg"></object> -->
-  <ul class="navbar" id="logos-navbar">
-    <li class="nav-item">
+    <li class="nav-item" id="logos-navbar">
       <a class="nav-icon" href="https://www.linkedin.com/in/antonio-leblanc/" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" height="512pt" viewBox="0 0 512 512" width="512pt"><path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"/></svg>
       </a>
@@ -65,7 +63,7 @@
   </ul>
 
   <div class="nav-item" id="toggle-menu">
-    <a class="nav-icon" href="#top">
+    <a class="nav-icon" href="javascript:void(0);" onclick="menuClick()">
       <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512"><path d="m464.883 64.267h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"/><path d="m464.883 208.867h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"/><path d="m464.883 353.467h-417.766c-25.98 0-47.117 21.137-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.012-21.137-47.149-47.117-47.149z"/></svg>
     </a>
   </div>
@@ -109,8 +107,7 @@
 
   <div class="subsection">
     <div class="subsection-content">
-      <h1 class="subsection-title
-">Currently</h1>
+      <h1 class="subsection-title">Currently</h1>
       <div>
         <p>Studying - Web Development</p>
         <p>Reading - Sapiens</p>
@@ -127,8 +124,7 @@
       <img class="rounded-img" src='images/centrale.png'>
     </div>
     <div class="subsection-content">
-      <h1 class="subsection-title
-">Education</h1>
+      <h1 class="subsection-title">Education</h1>
       <div>
         <p>Ecole Centrale de Lyon</p>
         <li>
@@ -145,8 +141,7 @@
 
   <div class="subsection">
     <div class="subsection-content">
-      <h1 class="subsection-title
-">Work</h1>
+      <h1 class="subsection-title">Work</h1>
       <ul>
         <li>Sintecsys : Machine Learning Engineer</li>
         <!-- <a href="https://albiziaproject.wixsite.com/albizia/sintecsys">Albizia interview</a> -->
@@ -245,8 +240,8 @@
 
 <!-- ------------ Typed function ------------->
 <script type="text/javascript">
-      $(window).on("load",function(){
-	$(function(){
+  $(window).on("load",function(){
+	  $(function(){
         $(".typed-element").typed({
             // strings: ["a Mechanical Engineer", "a Cyclist","a Data Scientist", 
             //  "a Pianist","a Web Developer","a Skateboarder", "an Adventurer"],
@@ -256,8 +251,8 @@
             backSpeed: 20,
             loop:true,
         });
-    });
       });
+    });
 
   //  <!-- ------------ Slide do sections ------------->
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -267,8 +262,17 @@
       document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
       });
+      });
   });
-  });
+  
+  //  <!-- ------------ Slide do sections ------------->
+
+
+  function menuClick(){
+    console.log('clicou');
+    $('.navbar').toggleClass('active')
+  }
+
 
 </script>
 
