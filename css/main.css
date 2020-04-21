@@ -15,6 +15,7 @@
     box-sizing: border-box;
     margin: 0 ;
     padding: 0;
+    line-height: 1.5;
 }
 
 /* ---------- Scroll Bar ------------ */ 
@@ -32,6 +33,7 @@ body::-webkit-scrollbar-thumb {
 }
 /* -------------------------------- */ 
 
+/* --------  Native Tags ---------- */ 
 
 body{
     background-color: var(--bg-primary);
@@ -54,7 +56,6 @@ a:hover{
 
 p{
     padding-bottom: 1rem;    
-    line-height: 1.5;
 }
 ul{
     list-style-position: inside;
@@ -170,7 +171,7 @@ svg {
 .subsection-title{
     color:whitesmoke;
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
 }
 
 .subsection{
@@ -182,6 +183,17 @@ svg {
     text-align: left;
     margin: 0 2rem 2rem; 
 }
+
+.content-container{
+    padding-bottom: 1rem;
+}
+
+.content-title{
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-bottom: 0.2rem;
+}
+
 
 .subsection-fix-video{
     width: min(500px, 90vw);
@@ -208,7 +220,8 @@ svg {
 }
 
 .section li{
-    padding-left: 1rem;
+    padding-left: 0.75rem;
+    padding-bottom: 0.25rem;
 }
 /* ----------- Image - Videos --------- */
 
