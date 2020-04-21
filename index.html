@@ -7,8 +7,11 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="./images/favicon.ico">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap" rel="stylesheet">
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.bootcss.com/typed.js/1.1.4/typed.min.js"></script>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     </head>
 
 <body>
@@ -73,17 +76,17 @@
 
 <!-- ------- Opening ----------- -->
 
-<div class="bg-img-1 intro-section flex-center">
+<section class="bg-img-1 intro-section flex-center">
   <div class="intro-text">
 	  <h1 class="title-name">Antonio Leblanc</h1>
     <p class="typed-sentence"><span class="typed-element"></span></p>
   </div>
-</div>
+</section>
 
 <!-- ------- 1 Section ----------- -->
 
-<div class='section' id="about">
-  <div class="subsection">
+<section class='section' id="about">
+  <section class="subsection" data-aos="fade-right">
     <div class="img-container">
       <img class="rounded-img" src='images/about_me.jpg'>
     </div>
@@ -92,7 +95,7 @@
 
       <p>Hello there!</p>
       <p>I'm Antonio, a fresh-graduate Mechanical Engineer who is passionate about learning and acquiring new skills.</p>
-      <p>My professional goal is to specialize myself in the Technology Sector, and make a positive impact on the world.</p>
+      <p>My professional goal is to specialize myself in the Technology Sector, and to make a positive impact on the world.</p>
       <p>In order to live a fulfilled life, and I do my best to find balance beetwen all these dimensions :</p>
       <ul>
         <li>Relationships</li>
@@ -103,31 +106,28 @@
       </ul>
 
     </div>
-  </div>
+  </section>
 
-  <div class="subsection">
+  <section class="subsection"  data-aos="fade-left">
     <div class="subsection-content">
       <h1 class="subsection-title">Currently</h1>
       <div class = "content-container">
         <h3 class ="content-title">Studying</h3>
-        <li>Frontend Development</li>
+        <li>Frontend Development - Angular</li>
+        <li>Deep Learning - TensorFlow</li>
       </div>
       <div class = "content-container">
         <h3 class ="content-title">Reading</h3>
         <li>Sapiens</li>
       </div>
-      <div class = "content-container">
-        <h3 class ="content-title">Piano</h3>
-        <li>Reverie, Debussy</li>
-        <li>Arabesque, Debussy</li>
-      </div>
+
     </div>
     <div class="img-container">
       <img class="rounded-img" src='images/currently.jpg'>
     </div>
-  </div>
+  </section>
   
-  <div class="subsection">
+  <section class="subsection"  data-aos="fade-right">
     <div class="img-container">
       <img class="rounded-img" src='images/centrale.png'>
     </div>
@@ -149,9 +149,9 @@
         <li>Mechanical Engineering</li>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="subsection">
+  <section class="subsection"  data-aos="fade-left">
     <div class="subsection-content">
       <h1 class="subsection-title">Work</h1>
       <div class = "content-container">
@@ -160,7 +160,6 @@
         <li>Software Developer</li>
         <li>Data Base Administrator</li>
       </div>
-        <!-- <a href="https://albiziaproject.wixsite.com/albizia/sintecsys">Albizia interview</a> -->
       <div class = "content-container">
         <h3 class ="content-title">Radix</h3>
         <li>Data Science Intern</li>
@@ -176,31 +175,37 @@
         <iframe class="resp-iframe" src="https://www.youtube.com/embed/dtMUfxGnLtw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
-  </div>
+  </section>
+
+</section>
 
 
-</div>
+<!-- ------- 2 bk-image ----------- -->
+<section class="bg-img-2 section"></section>
 
+<!-- ------- Music Section ----------- -->
 
-<!-- ------- Music ----------- -->
-
-<div class="bg-img-2 section"></div>
-
-<div id= "music" class='music section'>
-  <h1 class="text-mask">Music</h1>
-
+<section id= "music" class='music section'>
+  <h1 class="text-mask" data-aos="zoom-in">
+    Music
+  </h1> 
   
-  
-  <div class="subsection">
+  <section class="subsection">
     
     <div class="subsection-content">
       <h1 class="subsection-title">Piano</h1>
       <div class = "content-container">
-        <h3 class ="content-title">Sintecsys</h3>
-        <li>Machine Learning Engineer</li>
-        <li>Software Developer</li>
-        <li>Data Base Administrator</li>
+        <h3 class ="content-title">Currently Studying</h3>
+        <li>Arabesque, Debussy</li>
+        <li>Reverie, Debussy</li>
       </div>
+      <div class = "content-container">
+        <h3 class ="content-title">Favorite Composers</h3>
+        <li>Chopin</li>
+        <li>Bach</li>
+        <li>Debussy</li>
+      </div>
+
     </div>
     
     <div class="subsection-fix-video">
@@ -209,9 +214,9 @@
       </div>
     </div>
     
-  </div>
+  </section>
   
-  <div class="subsection">
+  <section class="subsection">
     
     <div class="subsection-fix-video">
       <div class="video-container">
@@ -222,21 +227,23 @@
     <div class="subsection-content">
       <div class = "content-container">
         <h3 class ="content-title">Ressources</h3>
-        <li>Exercises to improve Music Reading : https://www.musictheory.net/exercises</li>
+        <li> <a href="https://www.musictheory.net/exercise">Exercises to improve Music Reading</a></li>
       </div>
     </div>
-  </div>
+  </section>
     
-</div>
+</section>
   
 <!-- ------- Sports ----------- -->
 
-<div class="bg-img-3 section"></div>
+<section class="bg-img-3 section"></section>
 
-<div id= "sports" class='sports section'>
-  <h1 class="text-mask">Sports</h1>
+<section id= "sports" class='sports section'>
+  <h1 class="text-mask" data-aos="zoom-in">
+    Sports
+  </h1>
   
-  <div class="subsection">
+  <section class="subsection">
     <div class="img-container">
       <img class="rounded-img" src='images/mft.jpeg'>
     </div>
@@ -258,9 +265,9 @@
       </div>
 
     </div>
-  </div>
+  </section>
   
-  <div class="subsection-2videos">
+  <section class="subsection-2videos">
     <div class="subsection-var-video">
       <div class="video-container">
         <iframe class="resp-iframe" src="https://www.youtube.com/embed/rY_qraWPbE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -271,21 +278,20 @@
         <iframe class="resp-iframe" src="https://www.youtube.com/embed/hujT56Uxczk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>  
     </div>
-  </div>
+  </section>
   
-  
-  
-  
-</div>
+</section>
 
 <!-- ------- Travel ----------- -->
 
-<div class="bg-img-4 section"></div>
+<section class="bg-img-4 section"></section>
 
 
-<div id= "travel" class='travel section flex-center'>
-  <h1 class="text-mask">Coming Soon.</h1>
-</div>
+<section id= "travel" class='travel section flex-center'>
+  <h1 class="text-mask" data-aos="zoom-in" data-aos-duration="2000">
+    Coming Soon.
+  </h1>
+</section>
 
 
 
@@ -320,13 +326,16 @@
       });
   });
   
-  //  <!-- ------------ Slide do sections ------------->
-
-
+  //  <!-- ------------ Animations ------------->
+  AOS.init({
+    offset:150,
+    duration:1000,
+  });
+  //  <!-- ------------ navbarClick ------------->
   function menuClick(){
-    console.log('clicou');
     $('.navbar').toggleClass('active')
   }
+
 
 
 </script>
