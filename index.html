@@ -21,13 +21,7 @@
   <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>
   </div>
-  <script>
-      $(window).on("load",function(){
-        $(".loader-wrapper").fadeOut("slow");
-      });
-  </script>
 <!-- --------------------- -->
-
 
 <!-- ------- HEADER ----------- -->
 <a id="top"></a>
@@ -118,7 +112,7 @@
       </div>
       <div class = "content-container">
         <h3 class ="content-title">Reading</h3>
-        <li>Sapiens</li>
+        <li>The Effective Executive</li>
       </div>
 
     </div>
@@ -151,25 +145,42 @@
     </div>
   </section>
 
-  <section class="subsection"  data-aos="fade-left">
-    <div class="subsection-content">
-      <h1 class="subsection-title">Work</h1>
-      <div class = "content-container">
-        <h3 class ="content-title">Sintecsys</h3>
-        <li>Machine Learning Engineer</li>
-        <li>Software Developer</li>
-        <li>Data Base Administrator</li>
+  
+  <section class="subsection" id="work-sub" data-aos="fade-left">
+    <ul class ="job-tabs-list">
+      <li data-tab-target="#sintecsys" class="active job-tab">Sintecsys</li>
+      <li data-tab-target="#radix" class="job-tab">Radix</li>
+      <li data-tab-target="#amazon" class="job-tab">Amazon</li>
+    </ul>
+    
+    <div class="job-tab-content">
+      <div id="sintecsys" class="active" data-tab-content>
+        <h3>Software Engineer</h3>
+        <p>Oct 2019 - Present</p>
+        <ul>
+          <li>Developing deep learning models for smoke detection in forest areas from real-time camera images</li>
+          <li>Software Developer</li>
+          <li>Data Base Administrator</li>
+        </ul>
       </div>
-      <div class = "content-container">
-        <h3 class ="content-title">Radix</h3>
-        <li>Data Science Intern</li>
+      <div id="radix" data-tab-content>
+        <h3>Data Science Intern</h3>
+        <p>Jun - Oct 2019</p>
+        <li>Created models to predict failure conditions in industrial equipments</li>
+        <li>Production Optimization : Designed models to fine tune process parameters of equipments in order to reduce their energy consumption.</li>
       </div>
-
-      <div class = "content-container">
-        <h3 class ="content-title">Amazon</h3>
-        <li>Operations Management Intern</li>
+      <div id="amazon" data-tab-content>
+        <h3>Operations Management Intern</h3>
+        <p>May - Oct 2018</p>
+        <li>Designed and implemented Supply chain optimization projects in a Fullfilment Center that handles 400K Units/Day.</li>
+        <li>Developed production management tools in Excel / Visual Basic : Extraction and analysis of real time logistics data, flow predictions, productivity management.</li>
+        <li>Helped to manage a team of 20 associates.</li>
       </div>
     </div>
+    
+  </section>
+  
+  <section class="subsection">
     <div class="subsection-fix-video">
       <div class="video-container">
         <iframe class="resp-iframe" src="https://www.youtube.com/embed/dtMUfxGnLtw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -249,7 +260,9 @@
     </div>
     <div class="subsection-content">
       <div class="content-container">
-        <h3 class ="content-title">Member of <a href="https://www.mftriathlon.com/">Marcia Ferreira's</a> Triathlon Team</h3>
+        <h3 class ="content-title">
+          Member of <a href="https://www.mftriathlon.com/" target ="_blank">Marcia Ferreira's</a> 
+          Triathlon Team</h3>
         <ul>
           <li>Cylcing</li>
           <li>Running</li>
@@ -287,58 +300,40 @@
 <section class="bg-img-4 section"></section>
 
 
-<section id= "travel" class='travel section flex-center'>
+
+<section class = "section">
+  <section class="subsection">
+    <div class="img-container">
+      <img class="rounded-img" src='images/asia_trip.jpg'>
+    </div>
+    <div class="subsection-content">
+      <div class="content-container">
+        <h3 class ="content-title">Asia Trip 2019</h3>
+        <ul>
+          <li>Thailand</li>
+          <li>Myanmar</li>
+          <li>Laos</li>
+          <li>Vietnam</li>
+          <li>Camboja</li>
+          <li>Indonesia</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</section>
+
+  <section id= "travel" class='travel section flex-center'>
   <h1 class="text-mask" data-aos="zoom-in" data-aos-duration="2000">
     Coming Soon.
   </h1>
 </section>
 
 
-
 <footer>
-  <p>© 2020 Antonio Leblanc.</p>
+  <span>© 2020 Antonio Leblanc.</span>
 </footer>
 
-<!-- ------------ Typed function ------------->
-<script type="text/javascript">
-  $(window).on("load",function(){
-	  $(function(){
-        $(".typed-element").typed({
-            // strings: ["a Mechanical Engineer", "a Cyclist","a Data Scientist", 
-            //  "a Pianist","a Web Developer","a Skateboarder", "an Adventurer"],
-            strings: ["Mechanical Engineering", "Cycling","Data Science", 
-             "Piano","Software Development","Skateboarding", "Adventure"],
-            typeSpeed: 40,
-            backSpeed: 20,
-            loop:true,
-        });
-      });
-    });
-
-  //  <!-- ------------ Slide do sections ------------->
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-      });
-      });
-  });
-  
-  //  <!-- ------------ Animations ------------->
-  AOS.init({
-    offset:150,
-    duration:1000,
-  });
-  //  <!-- ------------ navbarClick ------------->
-  function menuClick(){
-    $('.navbar').toggleClass('active')
-  }
-
-
-
-</script>
+<script src="script.js" defer></script>
 
 </body>
 </html>

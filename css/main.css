@@ -57,9 +57,7 @@ a:hover{
 p{
     padding-bottom: 1rem;    
 }
-ul{
-    list-style-position: inside;
-}
+
 
 /* ----------- HEADER --------- */
 
@@ -168,21 +166,24 @@ svg {
     background-size: cover;
 }
 
+.subsection{
+    display: flex;
+    align-items: center; 
+    text-align: left;
+    width: 900px;
+    margin: auto;
+    justify-content: space-between;   
+}
+
+.subsection-content{
+    margin: 0 2rem 2rem; 
+}
+
 .subsection-title{
     color:whitesmoke;
     text-align: center;
     font-size: 1.3rem;
     padding-bottom: 1.5rem;
-}
-
-.subsection{
-    display: flex;
-    align-items: center; 
-}
-
-.subsection-content{
-    text-align: left;
-    margin: 0 2rem 2rem; 
 }
 
 .content-container{
@@ -194,7 +195,6 @@ svg {
     font-weight: bold;
     padding-bottom: 0.2rem;
 }
-
 
 .subsection-fix-video{
     width: min(500px, 90vw);
@@ -220,10 +220,59 @@ svg {
     -webkit-text-fill-color: transparent;
 }
 
-.section li{
+.subsection-content li{
     padding-left: 0.75rem;
     padding-bottom: 0.25rem;
 }
+
+.subsection ul{
+    padding-left: 1.5rem;
+}
+
+
+#work-sub{
+    align-items: flex-start;
+    height: 15rem;
+    margin: 3rem auto ;
+}
+
+[data-tab-content]{
+    display: none;
+}
+
+.active[data-tab-content]{
+    display: block;
+}
+
+.job-tabs-list{
+    list-style: none;
+    margin-left: 5%;
+}
+
+.job-tab{
+    cursor:pointer;
+    padding: 1rem;
+    color: gray;
+    border-left: 2px solid gray;
+}
+
+.job-tab:hover{
+    background-color: rgb(22, 35, 53);
+}
+
+.job-tab.active{
+    background-color: rgb(22, 35, 53);
+    color:rgb(72, 139, 226);
+    border-left: 2px solid  rgb(72, 139, 226);
+}
+
+.job-tab-content{
+    display: inline-block;
+    width: 70%;
+    margin: 0  auto;
+}
+
+
 /* ----------- Image - Videos --------- */
 
 .img-container{
@@ -258,14 +307,6 @@ svg {
 
 /* ----------- Responsive --------- */
 
-@media screen and (min-width: 900px){
-    .subsection{
-        width: 900px;
-        margin: auto;
-        justify-content: space-between;   
-    }
-    
-}
 
 @media screen and (max-width: 900px){
     header {
@@ -299,6 +340,7 @@ svg {
     }
 
     .subsection{
+        width: 100vw;
         margin: 0;
         flex-direction: column;
     }
@@ -386,7 +428,7 @@ font-weight: bolder;
 /* -- Footer -- */
 footer{
     margin: 0;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 
