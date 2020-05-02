@@ -268,6 +268,7 @@ svg {
     margin-left: 5%;
 }
 
+
 .job-tab{
     cursor:pointer;
     padding: 1rem;
@@ -291,6 +292,18 @@ svg {
     margin: 0  auto;
 }
 
+.job-tab-content ul {
+    list-style: none; /* Remove default bullets */
+  }
+  
+  .job-tab-content ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: rgb(0, 153, 255); /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
 
 /* ----------- Image - Videos --------- */
 
@@ -308,7 +321,6 @@ svg {
     height: min(400px, 90vw);
     width: min(400px, 90vw);
 }
-
 
 .video-container{
     position: relative;
@@ -352,10 +364,6 @@ svg {
     
     #logos-navbar{
         margin:0;
-    }
-
-    .nav-item{
-        /* border */
     }
 
     .subsection{
