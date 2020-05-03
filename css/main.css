@@ -3,7 +3,6 @@
     --text-primary: #e6f1ff;
     --text-secondary: #fdee00; 
     --bg-header: black;
-    /* --bg-primary: black; */
     --bg-primary: #0c121b;
     --bg-secondary: #333;
     --transition-speed: 600ms;
@@ -297,12 +296,12 @@ svg {
   }
   
   .job-tab-content ul li::before {
-    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: rgb(0, 153, 255); /* Change the color */
-    font-weight: bold; /* If you want it to be bold */
-    width: 1em; /* Also needed for space (tweak if needed) */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    margin-left: -1em; /* Also needed for space (tweak if needed) */
+    content: "▹";
+    color: rgb(0, 153, 255);
+    font-weight: bold;
+    width: 1em;
+    margin-left: -1em;
+    display: inline-block;
 }
 
 /* ----------- Image - Videos --------- */
