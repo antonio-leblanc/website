@@ -43,7 +43,7 @@ body{
 
 /* ----------- HEADER --------- */
 
-header{
+#header{
     width: 100vw;
     padding: 0 15vw;
     height: $header-height;
@@ -53,6 +53,7 @@ header{
     background-color: $header-color;
     display: flex;
     align-items: center;
+    transition: top 0.3s;
 }
 
 

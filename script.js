@@ -19,6 +19,20 @@ $(window).on("load",function(){
   });
 
 //   <------------ Slide do sections ------------->
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("header").style.top = "0";
+  } else {
+    document.getElementById("header").style.top = "-4rem";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function (e) {
     e.preventDefault();

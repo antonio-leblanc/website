@@ -33,7 +33,7 @@ body {
 }
 
 /* ----------- HEADER --------- */
-header {
+#header {
   width: 100vw;
   padding: 0 15vw;
   height: 4rem;
@@ -47,6 +47,8 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: top 0.3s;
+  transition: top 0.3s;
 }
 
 /* ----------- NavBar --------- */
