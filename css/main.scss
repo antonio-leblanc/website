@@ -1,13 +1,14 @@
-:root {
-    font-size: 16px;
-    --text-primary: #e6f1ff;
-    --text-secondary: #fdee00; 
-    --bg-header: black;
-    --bg-primary: #0c121b;
-    --bg-secondary: #333;
-    --transition-speed: 600ms;
-    --header-height: 4rem;
-  }
+
+$bg-color: #0c121b;
+$text-primary: #e6f1ff;
+$text-secondary: rgb(0, 153, 255);
+$headings-color:whitesmoke;
+
+$header-color: black;
+$secondary-color: #fdee00; 
+$typed-color: #fdee00; 
+$transition-speed: 600ms;
+$header-height: 4rem;
 
 * {
     font-family: 'Montserrat', sans-serif;
@@ -22,38 +23,21 @@ body::-webkit-scrollbar {
     width: 0.25rem;
 }
 body::-webkit-scrollbar-track-piece:start {
-    background:var(--text-secondary);
+    background:$secondary-color;
 }
 body::-webkit-scrollbar-track {
-    background: var(--bg-primary);
+    background: $bg-color;
 }
 body::-webkit-scrollbar-thumb {
-    background:var(--text-secondary);
+    background:$secondary-color;
 }
 /* -------------------------------- */ 
 
-/* --------  Native Tags ---------- */ 
 
 body{
-    background-color: var(--bg-primary);
-    color:var(--text-primary);
+    background-color: $bg-color;
+    color:$text-primary;
     text-align: center;
-}
-h1, h2{
-    color:white;
-}
-
-a{
-    color:rgb(89, 236, 255);
-    text-decoration: none;
-    transition: all 0.3s ease 0s;
-}
-a:hover{
-    text-decoration: underline;
-}
-
-p{
-    padding-bottom: 1rem;    
 }
 
 
@@ -62,19 +46,15 @@ p{
 header{
     width: 100vw;
     padding: 0 15vw;
-    height: var(--header-height);
+    height: $header-height;
     position: fixed;
     top: 0;
     z-index: 1;
-    background-color: var(--bg-header);
+    background-color: $header-color;
     display: flex;
     align-items: center;
 }
 
-
-.empty-header{
-    height: var(--header-height);
-}
 
 /* ----------- NavBar --------- */
 
@@ -91,19 +71,19 @@ header{
 }
 
 .nav-text {
+    text-decoration: none;
     display: flex;
     align-items: center;
     height: 100%;
     padding: 1rem 1.5rem;
     transition: all 0.3s ease 0s;
-    color: var(--text-primary);    
+    color: $text-primary;    
 }
 
 .nav-text:hover{
     /* background-color: black; */
-    color:var(--text-secondary);
+    color:$secondary-color;
     padding: 0 1.5rem 0.5rem;
-    text-decoration: none;
 }
 
 
@@ -123,7 +103,7 @@ svg {
 
 .nav-icon:hover svg,
 .nav-icon:hover {
-    fill: var(--text-secondary);
+    fill: $secondary-color;
     transform : scale(1.07);
 }
 
@@ -143,7 +123,7 @@ svg {
     cursor: pointer;
 }
 
-/* ----------- Generic --------- */
+/* ----------- Sections --------- */
 
 .flex-center{
     display: flex;
@@ -151,30 +131,45 @@ svg {
     justify-content: center;
 }
 
-.intro-section{
-    height: 100vh;
-    background-attachment: fixed;
-    background-size: cover;
-}
+
 
 .section{
     min-height: 130vh;
-    padding-top: var(--header-height);
+    padding-top: $header-height;
     background-attachment: fixed;
     background-size: cover;
+
+    a{
+        color:$text-secondary;
+        text-decoration: none;
+        transition: all 0.3s ease 0s;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    
+    p{
+        padding-bottom: 1rem;    
+    }
+
+}
+
+
+#intro-section{
+    min-height: 100vh;
 }
 
 .subsection{
     display: flex;
     align-items: center; 
     text-align: left;
-    width: min(900px,80%);
+    width: #{"min(900px,80%)"};
     margin: auto;
     justify-content: space-between;   
 }
 
 .subsection-title{
-    color:whitesmoke;
+    color:$headings-color;
     text-align: center;
     font-size: 1.5rem;
     padding-bottom: 1.5rem;
@@ -182,11 +177,30 @@ svg {
 }
 
 .subsection-content{
-    margin: 0 2rem 2rem; 
+    margin: 0 2rem 2rem;
+    
+    ul {
+        list-style: none; /* Remove default bullets */
+        }
+        
+    li{
+    padding-left: 1.5rem;
+    padding-bottom: 0.25rem;
+    }
+    
+    ul li::before {
+        content: "▹";
+        color: $text-secondary;
+        font-weight: bold;
+        display: inline-block;
+        width: 1rem;
+        margin-left: -1.5rem;
+        margin-right: 0.5rem;
+    }
 }
 
 .content-title{
-    color:whitesmoke;
+    color:$headings-color;
     text-align: center;
     font-size: 1.3rem;
     padding-bottom: 1.5rem;
@@ -203,7 +217,7 @@ svg {
 }
 
 .subsection-fix-video{
-    width: min(500px, 90vw);
+    width: #{"min(500px, 90vw)"};
     margin: 0 auto 2rem;
 }
 
@@ -227,24 +241,16 @@ svg {
     -webkit-text-fill-color: transparent;
 }
 
-.subsection-content li{
-    padding-left: 0.75rem;
-    padding-bottom: 0.25rem;
-}
 
-.subsection ul{
-    padding-left: 1.5rem;
-}
-
+$p-color: lightgray;
 #work-sub{
     align-items: flex-start;
     justify-content:start;
     flex-direction: column;
     margin: 3rem auto ;
-}
-
-#work-sub p{
-    color: lightgray;
+    p{
+        color: $p-color;
+    }
 }
 
 .tabs-container{
@@ -268,21 +274,23 @@ svg {
 }
 
 
+$job-tab-unactive:gray;
 .job-tab{
     cursor:pointer;
     padding: 1rem;
-    color: gray;
-    border-left: 2px solid gray;
+    color: $job-tab-unactive;
+    border-left: 2px solid $job-tab-unactive;
 }
 
+$job-tab-active-bg:rgb(22, 35, 53);
 .job-tab:hover{
-    background-color: rgb(22, 35, 53);
+    background-color: $job-tab-active-bg;
 }
 
 .job-tab.active{
-    background-color: rgb(22, 35, 53);
-    color:rgb(72, 139, 226);
-    border-left: 2px solid  rgb(72, 139, 226);
+    background-color: $job-tab-active-bg;
+    color: $text-secondary;
+    border-left: 2px solid  $text-secondary;
 }
 
 .job-tab-content{
@@ -291,24 +299,12 @@ svg {
     margin: 0  auto;
 }
 
-.job-tab-content ul {
-    list-style: none; /* Remove default bullets */
-  }
-  
-  .job-tab-content ul li::before {
-    content: "▹";
-    color: rgb(0, 153, 255);
-    font-weight: bold;
-    width: 1em;
-    margin-left: -1em;
-    display: inline-block;
-}
 
 /* ----------- Image - Videos --------- */
 
 .img-container{
-    height: min(400px, 90vw);
-    width: min(400px, 90vw);
+    height: #{"min(400px, 90vw)"};
+    width: #{"min(400px, 90vw)"};
 
     margin: auto;
     margin-bottom: 2rem;
@@ -317,8 +313,8 @@ svg {
 .rounded-img{
     object-fit: cover;
     border-radius: 50%;
-    height: min(400px, 90vw);
-    width: min(400px, 90vw);
+    height: #{"min(400px, 90vw)"};
+    width: #{"min(400px, 90vw)"};
 }
 
 .video-container{
@@ -349,12 +345,13 @@ svg {
     
     .navbar{
         position: absolute;
-        top: var(--header-height); 
+        top: 0; 
         left: -100%;
         flex-direction: column;
-        height: calc(100vh - var(--header-height));
         background-color: #0c121b;
         transition: 0.5s;
+        height: 100vh;
+        padding-top: $header-height;
     }
     
     .navbar.active{
@@ -399,15 +396,15 @@ svg {
 
 .title-name{
     font-family: 'Poiret One', cursive;
-    font-size: min(20vw,7.5rem);
+    font-size: #{"min(20vw,7.5rem)"};
 }
 
 .typed-sentence{
-    font-size: min(10vw,4rem);
+    font-size: #{"min(10vw,4rem)"};
 }
 
 .typed-element{
-    color:var(--text-secondary)
+    color:$typed-color
 }
 
 
