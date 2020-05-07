@@ -14,7 +14,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track-piece:start {
-  background: #fdee00;
+  background: #1fadff;
 }
 
 body::-webkit-scrollbar-track {
@@ -22,7 +22,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #fdee00;
+  background: #1fadff;
 }
 
 /* -------------------------------- */
@@ -85,7 +85,7 @@ body {
 
 .nav-text:hover {
   /* background-color: black; */
-  color: #fdee00;
+  color: #1fadff;
   padding: 0 1.5rem 0.5rem;
 }
 
@@ -110,7 +110,7 @@ svg {
 
 .nav-icon:hover svg,
 .nav-icon:hover {
-  fill: #fdee00;
+  fill: #1fadff;
   -webkit-transform: scale(1.07);
           transform: scale(1.07);
 }
