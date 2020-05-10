@@ -449,11 +449,15 @@ font-weight: bolder;
 
 /* Slideshow container */
 .slideshow-container {
-    height: 80vh;
+    height: 60vh;
     width: 80vw;
     position: relative;
     margin: auto;
     overflow:hidden;
+
+    img{
+        width: 100%;
+    }
   }
   
   /* Hide the images by default */
