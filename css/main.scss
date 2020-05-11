@@ -427,7 +427,7 @@ $job-tab-active-bg:rgb(22, 35, 53);
 
 /* -- BG IMAGES -- */
 .bg-img-1{background-image: url(../images/bg-insano.png);}
-.bg-img-2{background-image: url(../images/back2.jpg);}
+.bg-img-2{background-image: url(../images/asia2.jpg);}
 .bg-img-3{background-image: url(../images/snowboard.jpg);}
 .bg-img-4{background-image: url(../images/adventure.jpg);}
 .bg-img-5{background-image: url(../images/rick-morty.jpg);}
@@ -493,11 +493,13 @@ font-weight: bolder;
 
 /* Slideshow container */
 .slideshow-container {
-    height: 60vh;
+    height: 80vh;
     width: 80vw;
     position: relative;
     margin: auto;
     overflow:hidden;
+    display: flex;
+    align-items: center;
 
     img{
         width: 100%;
