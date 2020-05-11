@@ -171,7 +171,6 @@ svg {
 
 .subsection-title{
     color:$headings-color;
-    text-align: center;
     font-size: 1.5rem;
     padding-bottom: 1.5rem;
     width: 100%;
@@ -179,7 +178,10 @@ svg {
 
 .subsection-content{
     margin: 0 2rem 2rem;
-    
+}
+
+.styled-list{
+
     ul {
         list-style: none; /* Remove default bullets */
         }
@@ -198,7 +200,11 @@ svg {
         margin-left: -1.5rem;
         margin-right: 0.5rem;
     }
+
 }
+
+
+
 
 .content-title{
     color:$headings-color;
@@ -208,13 +214,14 @@ svg {
     display:flex;
     align-items: center;
     // justify-content: center;
-    .header-icon{
-        height: 2rem;
-        padding-right: 0.5rem;
-        padding-left: 25%;
-    }
+
 }
 
+.header-icon{
+    height: 2rem;
+    padding-right: 1rem;
+    padding-left: calc(50% - 6rem);
+}
 
 .content-block{
     padding-bottom: 1rem;
@@ -224,6 +231,8 @@ svg {
     font-size: 1.1rem;
     font-weight: bold;
     padding-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
 }
 
 .subsection-fix-video{
@@ -267,7 +276,7 @@ $p-color: lightgray;
     display: flex;
     align-items: flex-start;
     justify-content:start;
-    height: 15rem;
+    min-height: 15rem;
 }
 
 [data-tab-content]{
@@ -285,17 +294,18 @@ $p-color: lightgray;
 
 
 $job-tab-unactive:gray;
+$job-tab-active-bg:rgb(22, 35, 53);
+
 .job-tab{
     cursor:pointer;
     padding: 1rem;
     color: $job-tab-unactive;
     border-left: 2px solid $job-tab-unactive;
+    &:hover{
+        background-color: $job-tab-active-bg;
+    }
 }
 
-$job-tab-active-bg:rgb(22, 35, 53);
-.job-tab:hover{
-    background-color: $job-tab-active-bg;
-}
 
 .job-tab.active{
     background-color: $job-tab-active-bg;
@@ -385,6 +395,32 @@ $job-tab-active-bg:rgb(22, 35, 53);
     .subsection-content{
         order:-1;
     }
+    .tabs-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .job-tabs-list{
+        display:flex;
+        justify-content: space-around;
+        // width: 80vw;
+        padding-bottom: 1rem;
+    }
+
+    .job-tab{
+        border-left: none;
+        border-top: 2px solid $job-tab-unactive;
+        
+        &:hover{
+            background-color: $job-tab-active-bg;
+        }
+    }
+
+    .job-tab.active{
+        border-left: none;
+        border-top: 2px solid $text-secondary;
+    }
+
 }
 /* ---------------------------- */
 
