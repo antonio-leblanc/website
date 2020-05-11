@@ -224,6 +224,18 @@ svg {
   text-align: center;
   font-size: 1.3rem;
   padding-bottom: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content-title .header-icon {
+  height: 2rem;
+  padding-right: 0.5rem;
+  padding-left: 25%;
 }
 
 .content-block {
@@ -373,17 +385,16 @@ svg {
   }
   .navbar {
     position: absolute;
-    top: 0;
+    top: 4rem;
     left: -100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background-color: #0c121b;
+    background-color: rgba(0, 0, 0, 0.4);
     -webkit-transition: 0.5s;
     transition: 0.5s;
-    height: 100vh;
-    padding-top: 4rem;
+    height: calc(100vh - 4rem);
   }
   .navbar.active {
     left: 0;
@@ -590,8 +601,8 @@ footer {
 
 /* ---------- LOADER --------- */
 .loader-wrapper {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -610,9 +621,8 @@ footer {
 
 .loader {
   display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
+  width: 2rem;
+  height: 2rem;
   border: 4px solid #Fff;
   -webkit-animation: loader 2s infinite ease;
           animation: loader 2s infinite ease;
