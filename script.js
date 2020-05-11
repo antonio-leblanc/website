@@ -20,6 +20,8 @@ $(window).on("load",function(){
 
 //   <------------ Slide do sections ------------->
 
+if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
+
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
@@ -29,6 +31,7 @@ window.onscroll = function() {
     document.getElementById("header").style.top = "-4rem";
   }
   prevScrollpos = currentScrollPos;
+}
 }
 
 
