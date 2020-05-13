@@ -18,7 +18,7 @@ $(window).on("load",function(){
     });
   });
 
-//   <------------ Slide do sections ------------->
+//   <------------ Header Disappears ------------->
 
 if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
 
@@ -35,6 +35,7 @@ window.onscroll = function() {
 }
 
 
+//   <------------ Slide do sections ------------->
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function (e) {

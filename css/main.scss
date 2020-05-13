@@ -323,8 +323,8 @@ $job-tab-active-bg:rgb(22, 35, 53);
 /* ----------- Image - Videos --------- */
 
 .img-container{
-    height: #{"min(400px, 90vw)"};
-    width: #{"min(400px, 90vw)"};
+    height: #{"min(400px, 90%)"};
+    width: #{"min(400px, 90%)"};
 
     margin: auto;
     margin-bottom: 2rem;
@@ -333,8 +333,8 @@ $job-tab-active-bg:rgb(22, 35, 53);
 .rounded-img{
     object-fit: cover;
     border-radius: 50%;
-    height: #{"min(400px, 90vw)"};
-    width: #{"min(400px, 90vw)"};
+    height: #{"min(400px, 90%)"};
+    width: #{"min(400px, 90%)"};
 }
 
 .video-container{
