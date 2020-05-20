@@ -38,15 +38,12 @@ window.onscroll = function() {
 
 //   <------------ Slide do sections ------------->
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
+$('a[href^="#"]').click( function (e) {
     e.preventDefault();
 
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
+    document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
     });
-    });
-});
+
 
 //   <------------ Animations ------------->
 AOS.init({
