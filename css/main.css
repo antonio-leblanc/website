@@ -352,8 +352,8 @@ svg {
 
 /* ----------- Image - Videos --------- */
 .img-container {
-  height: min(400px, 90vw);
-  width: min(400px, 90vw);
+  height: min(400px, 90%);
+  width: min(400px, 90%);
   margin: auto;
   margin-bottom: 2rem;
 }
@@ -362,8 +362,8 @@ svg {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
-  height: min(400px, 90vw);
-  width: min(400px, 90vw);
+  height: min(400px, 90%);
+  width: min(400px, 90%);
 }
 
 .video-container {
@@ -444,6 +444,8 @@ svg {
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
     padding-bottom: 1rem;
   }
   .job-tab {
@@ -551,6 +553,8 @@ svg {
 
 .slideshow-container img {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* Hide the images by default */
