@@ -9,6 +9,10 @@
   line-height: 1.5;
 }
 
+ul {
+  margin: 0;
+}
+
 /* ---------- Scroll Bar ------------ */
 body::-webkit-scrollbar {
   width: 0.25rem;
@@ -167,6 +171,7 @@ svg {
 
 .section p {
   padding-bottom: 1rem;
+  margin: 0;
 }
 
 #intro-section {
@@ -511,6 +516,7 @@ svg {
 .title-name {
   font-family: 'Poiret One', cursive;
   font-size: min(20vw,7.5rem);
+  font-weight: 200;
 }
 
 .typed-sentence {
