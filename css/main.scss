@@ -13,6 +13,7 @@ $header-height: 4rem;
 * {
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
+    font-size: 1rem;
     margin: 0 ;
     padding: 0;
     line-height: 1.5;
@@ -132,8 +133,6 @@ svg {
     justify-content: center;
 }
 
-
-
 .section{
     min-height: 130vh;
     padding-top: $header-height;
@@ -150,7 +149,7 @@ svg {
     }
     
     p{
-        padding-bottom: 1rem;    
+        padding-bottom: 1rem;
     }
 
 }
@@ -205,7 +204,6 @@ svg {
 
 
 
-
 .content-title{
     color:$headings-color;
     text-align: center;
@@ -214,7 +212,6 @@ svg {
     display:flex;
     align-items: center;
     // justify-content: center;
-
 }
 
 .header-icon{
@@ -225,6 +222,8 @@ svg {
 
 .content-block{
     padding-bottom: 1rem;
+    font-weight: 100;
+    font-size: 1.1rem;   
 }
 
 .block-title{
@@ -323,18 +322,21 @@ $job-tab-active-bg:rgb(22, 35, 53);
 /* ----------- Image - Videos --------- */
 
 .img-container{
-    height: #{"min(400px, 90%)"};
-    width: #{"min(400px, 90%)"};
 
-    margin: auto;
+    height: 400px;
+    width: 400px;
     margin-bottom: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .rounded-img{
     object-fit: cover;
     border-radius: 50%;
-    height: #{"min(400px, 90%)"};
-    width: #{"min(400px, 90%)"};
+    height: 400px;
+    width: 400px;
 }
 
 .video-container{
@@ -381,11 +383,22 @@ $job-tab-active-bg:rgb(22, 35, 53);
         margin:0;
     }
 
+
     .subsection{
         width: 100vw;
         margin: 0;
         flex-direction: column;
     }
+
+    .img-container{
+        height: 85vw;
+        width: 85vw;
+    }
+    .rounded-img{
+        height: 100%;
+        width: 100%;
+    }
+
     .subsection-2videos{
         flex-direction: column;
     }
@@ -395,6 +408,9 @@ $job-tab-active-bg:rgb(22, 35, 53);
     .subsection-content{
         order:-1;
     }
+
+
+
     .tabs-container{
         flex-direction: column;
         align-items: center;
@@ -447,10 +463,14 @@ $job-tab-active-bg:rgb(22, 35, 53);
 
 .typed-sentence{
     font-size: #{"min(10vw,4rem)"};
+    span{
+        font-size: inherit;
+    }
 }
 
 .typed-element{
-    color:$typed-color
+    color:$typed-color;
+    font-size: #{"min(10vw,4rem)"};
 }
 
 

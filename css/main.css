@@ -3,6 +3,7 @@
   font-family: 'Montserrat', sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 1rem;
   margin: 0;
   padding: 0;
   line-height: 1.5;
@@ -239,6 +240,8 @@ svg {
 
 .content-block {
   padding-bottom: 1rem;
+  font-weight: 100;
+  font-size: 1.1rem;
 }
 
 .block-title {
@@ -352,18 +355,26 @@ svg {
 
 /* ----------- Image - Videos --------- */
 .img-container {
-  height: min(400px, 90%);
-  width: min(400px, 90%);
-  margin: auto;
+  height: 400px;
+  width: 400px;
   margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .rounded-img {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
-  height: min(400px, 90%);
-  width: min(400px, 90%);
+  height: 400px;
+  width: 400px;
 }
 
 .video-container {
@@ -414,6 +425,14 @@ svg {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .img-container {
+    height: 85vw;
+    width: 85vw;
+  }
+  .rounded-img {
+    height: 100%;
+    width: 100%;
   }
   .subsection-2videos {
     -webkit-box-orient: vertical;
@@ -498,8 +517,13 @@ svg {
   font-size: min(10vw,4rem);
 }
 
+.typed-sentence span {
+  font-size: inherit;
+}
+
 .typed-element {
   color: #fdee00;
+  font-size: min(10vw,4rem);
 }
 
 /* -- Music -- */
