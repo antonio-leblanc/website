@@ -89,7 +89,7 @@ body {
 }
 
 .nav-text:hover {
-  /* background-color: black; */
+  text-decoration: none;
   color: #ffdd1f;
   padding: 0 1.5rem 0.5rem;
 }
@@ -554,6 +554,20 @@ svg {
   background-image: url(../images/sports-bg.png);
   font-size: 18vw;
   font-weight: bolder;
+}
+
+.my-carousel-container {
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /* -- Travel -- */

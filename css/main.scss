@@ -84,13 +84,13 @@ body{
     padding: 1rem 1.5rem;
     transition: all 0.3s ease 0s;
     color: $text-primary;
+    &:hover{
+        text-decoration: none;
+        color:$secondary-color;
+        padding: 0 1.5rem 0.5rem;
+    }
 }
 
-.nav-text:hover{
-    /* background-color: black; */
-    color:$secondary-color;
-    padding: 0 1.5rem 0.5rem;
-}
 
 
 .nav-icon {
@@ -506,6 +506,13 @@ font-size: 18vw;
 font-weight: bolder;
 }
 
+.my-carousel-container{
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* -- Travel -- */
 .travel{
