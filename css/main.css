@@ -574,6 +574,12 @@ svg {
 }
 
 /* -- Travel -- */
+#travel-map {
+  height: 75vh;
+  width: 80%;
+  margin: auto;
+}
+
 .travel .text-mask {
   background-image: url(../images/travel.jpg);
   font-size: 18vw;
