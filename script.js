@@ -117,6 +117,7 @@ function mapInit(){
 
   var LyonLausanne = [ [45.74846,4.84671], [46.5160, 6.63282] ];
 
+
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -126,11 +127,19 @@ function mapInit(){
     accessToken: "pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"
   }).addTo(map);
 
+    
   places.forEach(place =>   
     L.marker([place.lat, place.lon]).addTo(map)
     .bindPopup(place.name))
 
-  L.polyline(LyonLausanne, {color: 'red'}).addTo(map)
+  var poly = L.polyline(LyonLausanne, {color: 'red'}).addTo(map)
+
+  var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map);
 
 
   // L.Routing.control({
