@@ -107,7 +107,7 @@ body {
   transition: all 0.3s ease 0s;
 }
 
-svg {
+.nav-icon svg {
   width: 2rem;
   height: 2rem;
   fill: white;
@@ -405,6 +405,7 @@ svg {
     display: block;
   }
   .navbar {
+    display: none;
     position: absolute;
     top: 4rem;
     left: -100%;
@@ -578,6 +579,10 @@ svg {
   height: 75vh;
   width: 80%;
   margin: auto;
+}
+
+.leaflet-routing-container {
+  display: none;
 }
 
 .travel .text-mask {

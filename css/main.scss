@@ -99,12 +99,12 @@ body{
     height: 100%;
     padding: 0 1rem;
     transition: all 0.3s ease 0s;
-}
 
-svg {
-    width: 2rem;
-    height: 2rem;
-    fill: white;
+    svg {
+        width: 2rem;
+        height: 2rem;
+        fill: white;
+    }
 }
 
 .nav-icon:hover svg,
@@ -371,6 +371,7 @@ $job-tab-active-bg:rgb(22, 35, 53);
     }
     
     .navbar{
+        display: none;
         position: absolute;
         top: $header-height; 
         left: -100%;
@@ -523,6 +524,10 @@ font-weight: bolder;
     height: 75vh ; 
     width: 80% ;
     margin : auto ; 
+}
+
+.leaflet-routing-container{
+    display: none;
 }
 
 .travel .text-mask{

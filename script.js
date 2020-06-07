@@ -110,13 +110,96 @@ function mapInit(){
     {"name":"Myanmar",'lat':16.8052800,'lon':96.1561100},
     {"name":"Hong Kong",'lat':22.2855200,'lon':114.1576900},
     {"name":"Vietnam",'lat':21.0245000,'lon':105.8411700},
+    {"name":"Laos", 'lat': 19.882003512, 'lon': 102.1405166},
     {"name":"Cambodia",'lat':11.5624500,'lon':104.9160100},
     {"name":"Indonesia",'lat':-8.65,'lon':115.21667},
     {"name":"Singapore",'lat':1.2896700,'lon':103.8500700}
   ]
 
-  var LyonLausanne = [ [45.74846,4.84671], [46.5160, 6.63282] ];
 
+  var Geneve = {
+    "coords": [
+      {"lat":45.74846, "lon":4.84671},
+      {'lat': 46.198767990, 'lon': 6.1420200321}
+    ],
+    'color':'green'
+  };
+
+  var Chartreuse = {
+    "coords": [
+      {"lat":45.74846, "lon":4.84671},
+      {'lat': 45.36769249073883, 'lon': 5.811835378953392},
+    ],
+    'color':'green'
+  }
+  var stEtienne = {
+    "coords": [
+      {"lat":45.74846, "lon":4.84671},
+      {'lat': 45.439105765, 'lon': 4.388047578}
+    ],
+    'color':'green'
+  }
+  var Suecia = {
+    "coords": [
+      {"lat":50.85045, "lon":4.348783},
+      {'lat':52.37403000,'lon':4.8896900},
+      {'lat': 52.71673533, 'lon': 7.2899137200},
+      {'lat': 55.601896, 'lon': 12.9962475},
+      {"lat":56.04673 , "lon":12.69437},
+      {'lat': 55.88142919, 'lon': 12.479472847},
+      {'lat':55.6759400,'lon':12.56553},
+    ],
+    'color':'red'
+  }
+
+  var Loire = {
+    "coords": [
+      {'lat': 47.06095274, 'lon': -0.8799561280},
+      {"lat":47.9028900 , "lon":1.9038900}
+    ],
+    'color':'red'
+  }
+
+  var Flores = {
+    "coords": [
+      {'lat': -8.497775539427568, 'lon': 119.88375695146595},
+      {'lat': -8.770494625948603, 'lon': 121.81974630400296}
+    ],
+    'color':'green'
+  }
+
+  
+  var motoTrip = {
+    "coords": [
+      {'lat': 20.9866677862, 'lon': 105.8633968, "name":"Hanoi"},
+      {'lat': 18.663883585804594, 'lon': 105.68559653121923},
+      {'lat': 17.661150427670908, 'lon': 105.76176341475005},
+      {'lat': 17.397416699541118, 'lon': 104.82452369275713, "name":"thakek"},
+      {'lat': 14.030790782469872, 'lon': 105.88005864102325, 'name':"4kIs"},
+      {'lat': 15.175404679514559, 'lon': 106.24073613731012, 'name':"Paksong"},
+      {'lat': 15.712551397930111, 'lon': 106.42917188624406},
+      {'lat': 17.710236637171764, 'lon': 105.14736994800951},
+      {'lat': 17.952191125513238, 'lon': 104.74226685575996, 'name':'konglor'},
+      {'lat': 16.032397181745033, 'lon': 108.21130829906032, 'name':'Danang'},
+      {'lat': 12.2358212, 'lon': 109.18211312, 'name':'nhaTrang'},
+      {'lat': 11.936540054, 'lon': 108.4378800,'name':'Dalat'},
+      {'lat': 10.77590229339, 'lon': 106.691661703,'name':'HCM'},
+      {'lat': 10.03262939295, 'lon': 105.779780146,'name':'canTho'},
+      {'lat': 10.61525995857, 'lon': 104.180503299,'name':'Kampot'},
+      {'lat': 10.57968038688618, 'lon': 103.55746164633494, 'name':'Otres'},
+      {'lat': 11.18873169583665, 'lon': 103.56126886843124, 'name':'parkEntry'},
+      {'lat': 11.483642333084795, 'lon': 103.50848540612819},
+      {'lat': 11.820892008875598, 'lon': 103.2724397678695},
+      {'lat': 12.306378482203884, 'lon': 103.10930186843765, 'name':'VealVeng'},
+      {'lat': 13.093191600790263, 'lon': 103.2000504625441, 'name':'Battambang'},
+      {'lat': 13.441372915039294, 'lon': 103.83901204374143, 'name':'Angkor'},
+      {'lat':11.5624500,'lon':104.9160100, "name":"PnhomPenh"},
+
+    ],
+    'color':'green'
+  }
+ 
+  var trips = [Suecia, Geneve, Loire, Chartreuse, stEtienne, Flores, motoTrip];
 
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -127,29 +210,34 @@ function mapInit(){
     accessToken: "pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"
   }).addTo(map);
 
-    
   places.forEach(place =>   
     L.marker([place.lat, place.lon]).addTo(map)
     .bindPopup(place.name))
+    
+  trips.forEach(trip=> {
+    var waypoints = [] ;
+    for (point of trip.coords){
+      waypoints.push(L.latLng(point.lat,point.lon))
+    }
+    L.Routing.control({
+      waypoints: waypoints,
+      router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"),
+      fitSelectedRoutes:false,
+      show:false,
+      addWaypoints:false,
+      draggableWaypoints:false,
+      createMarker:()=> {return false},
+      lineOptions:{
+        'styles':[{color: 'black', opacity: 0.15, weight: 9}, {color: 'white', opacity: 0.8, weight: 6}, {color: trip.color, opacity: 1, weight: 2}]
+        }
+      
+    }).addTo(map);
+  }    
+ )
 
-  var poly = L.polyline(LyonLausanne, {color: 'red'}).addTo(map)
-
-  var circle = L.circle([51.508, -0.11], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 500
-}).addTo(map);
 
 
-  // L.Routing.control({
-  //   waypoints: [
-  //     L.latLng(57.74, 11.94),
-  //     L.latLng(57.6792, 11.949)
-  //   ],
-  //   router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ")
-  // }).addTo(map);
 
   map.on('click', function(e) {
-    console.log(map.getCenter());})
+    console.log(e.latlng);})
 }
