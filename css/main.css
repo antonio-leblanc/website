@@ -263,7 +263,7 @@ body {
 
 .subsection-fix-video {
   width: min(500px, 90vw);
-  margin: 0 auto 2rem;
+  margin: 0 auto 5rem;
 }
 
 .subsection-2videos {
@@ -289,6 +289,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
 }
 
 #work-sub {
@@ -542,6 +543,7 @@ body {
 
 .music .text-mask {
   background-image: url(../images/music-bg.png);
+  font-family: "Nova Mono", "monospace";
   font-size: 18vw;
   font-weight: bolder;
 }
@@ -575,6 +577,10 @@ body {
 }
 
 /* -- Travel -- */
+.travel {
+  background-image: url(https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=827&q=80);
+}
+
 #travel-map {
   height: 75vh;
   width: 80%;
@@ -586,8 +592,9 @@ body {
 }
 
 .travel .text-mask {
-  background-image: url(../images/travel.jpg);
+  background-image: url(https://images.unsplash.com/photo-1484589065579-248aad0d8b13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=696&q=80);
   font-size: 18vw;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .end {
