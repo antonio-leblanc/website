@@ -10,7 +10,11 @@ function mapInit(){
     time: '',
     tilematrixset: 'GoogleMapsCompatible_Level'
   });
-    
+  
+  var Streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  })
+
   var ArcGis = L.tileLayer(
     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
@@ -28,8 +32,9 @@ function mapInit(){
   })
 
   var baseMaps = {
+    "<span class='layer-legend'>NatGeo</span>": NatGeo,
     "Satellite":ArcGis,
-    "<span class='color: red'>NatGeo</span>": NatGeo,
+    "Streets":Streets,
     "Topographic": topoLayer,
     "Night":Dark,
   };
@@ -38,7 +43,7 @@ function mapInit(){
   var map = L.map('travel-map', {
     center: [30, 8],
     zoom: 3.2,
-    layers: [ArcGis]
+    layers: [NatGeo]
   });
     
   // DEFINING OVERLAY LAYERS
@@ -101,7 +106,9 @@ function mapInit(){
   var stEtienne = {
     "coords": [
       {"lat":45.74846, "lon":4.84671},
-      {'lat': 45.439105765, 'lon': 4.388047578}
+      {'lat': 45.59198029578722, 'lon': 4.766975542021293},
+      {'lat': 45.439105765, 'lon': 4.388047578},
+      {"lat":45.74846, "lon":4.84671},
     ],
     'color':'green'
   }
@@ -115,18 +122,21 @@ function mapInit(){
       {'lat': 55.88142919, 'lon': 12.479472847},
       {'lat':55.6759400,'lon':12.56553},
     ],
-    'color':'red'
+    'color':'green'
   }
     
   var Loire = {
     "coords": [
       {'lat': 47.06095274, 'lon': -0.8799561280},
+      {'lat': 47.25883330459712, 'lon': -0.0787703384809957},
+      {'lat': 47.38786925483467, 'lon': 0.6881933289343722},
+      {'lat': 47.58804904063447, 'lon': 1.3321037358737446},
       {"lat":47.9028900 , "lon":1.9038900}
     ],
-    'color':'red'
+    'color':'green'
   }
     
-  var places = raw_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
+  var world_places = raw_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
   var asia = asia_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
 
   var trips = [Suecia, Geneve, Loire, Chartreuse, stEtienne];
@@ -138,46 +148,78 @@ function mapInit(){
       ).addTo(map);
   });
 
-  
   var customIcon = L.icon({
     iconUrl: '../images/marker.svg',
     iconSize:     [38, 95], 
 });
   
+  var asiaIcon = L.divIcon({
+    className: 'asia-icon',
+    iconSize: [15, 15],
+  });
+
   polarstep_trip = get_polarsteps_trip();
-  console.log(polarstep_trip)
-  var polarstep_marker = polarstep_trip.all_steps.map((item,index) => L.marker([item.location.lat, item.location.lon]).bindPopup(item.location.full_detail+index))
-  var polarstep_latlon = polarstep_trip.all_steps.map(item =>[item.location.lat, item.location.lon]);
-  var polyline = L.polyline(polarstep_latlon, {color: 'white'}).addTo(map);
+  // console.log(polarstep_trip)
+  var polarstep_marker = 
+    polarstep_trip.all_steps.map((item,index) => 
+      L.marker([item.location.lat, item.location.lon], {icon:asiaIcon})
+      .bindPopup('<strong>Step '+index+':</strong> '+item.location.full_detail));
+
+  var polyline = L.polyline(
+    polarstep_trip.all_steps.map(item =>[item.location.lat, item.location.lon]));
   map.fitBounds(polyline.getBounds());
 
-  var idx_trips = [0,1,74];
+  var plane_style = {'color':'black', 'dashArray': '5'};
+  var transport_style = {'color':'blue'};
+  var motorbike_style = {'color':'red'};
+
+  var trenches = [
+    {'start':0, 'end':2, 'style':plane_style},
+    {'start':1, 'end':26, 'style':transport_style},
+    {'start':25, 'end':58, 'style':motorbike_style},
+    {'start':57, 'end':59, 'style':transport_style},
+    {'start':58, 'end':61, 'style':plane_style},
+    {'start':60, 'end':65, 'style':transport_style},
+    {'start':64, 'end':66, 'style':plane_style},
+    {'start':65, 'end':68, 'style':transport_style},
+    {'start':67, 'end':72, 'style':motorbike_style},
+    {'start':71, 'end':75, 'style':plane_style},
+   ]
+
+   trenches.forEach( trench => {
+    L.polyline(
+      polarstep_trip.all_steps.slice(trench.start,trench.end).map(item =>[item.location.lat, item.location.lon]),
+      trench.style)
+      .addTo(map);
+  });
 
   var overlayMaps = {
-    "Cities": L.layerGroup(places),
-    "Asia": L.layerGroup(asia),
-    "AsiaTIO": L.layerGroup(polarstep_marker),
+    "Countries": L.layerGroup(world_places),
+    // "AsiaTrip": L.layerGroup(polarstep_marker),
+    // "Asia": L.layerGroup(asia),
   };
 
-  
+  // ADDING CONTROL LAYERS
   L.control.layers(baseMaps,overlayMaps,{collapsed:false}).addTo(map);   
-
-
-  var legend = L.control({position: 'bottomright'});
+  map.addLayer(L.layerGroup(polarstep_marker));
+  // ADDING SCALE
   L.control.scale({'imperial':false, maxWidth:200}).addTo(map);
+  
+  // ADDING LEGEND
+  var legend = L.control({position: 'bottomright'});
+  legend.onAdd = map => {
 
-  legend.onAdd = function (map) {
-
-      var div = L.DomUtil.create('div', 'info legend'),
-        transport = ['Bicycle', 'MotorBike']
-        colors = ['blue','red'];
-
-      // loop through our density intervals and generate a label with a colored square for each interval
-      for (var i = 0; i < transport.length; i++) {
-          div.innerHTML +=
-              '<div><i style="background: '+colors[i]+'"></i> ' + transport[i] + '</div>' ;
-      }
-      return div;
+    var div = L.DomUtil.create('div', 'map-legend')
+    var legend = [
+          {'name':'Bicycle', 'color':'green'},
+          {'name':'MotorBike', 'color':'red'},
+          {'name':'Bus/Boat', 'color':'blue'},
+          {'name':'Airplane', 'color':'black'},
+        ];
+    div.innerHTML = legend.reduce( (html,item) => 
+        html + '<div><i style="background: '+item.color+'"></i> ' + item.name + '</div>',''
+    );
+    return div;
   };
 
   legend.addTo(map);
@@ -188,24 +230,20 @@ function mapInit(){
   // ROUTING
   // 100 000 free requests
   // trips.forEach(trip=> {
-  // var waypoints = [] ;
-  // for (point of trip.coords){
-  //   waypoints.push(L.latLng(point.lat,point.lon))
-  // }
-  // // L.Routing.control({
-  // //   waypoints: waypoints,
-  // //   router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"),
-  // //   fitSelectedRoutes:false,
-  // //   show:false,
-  // //   addWaypoints:false,
-  // //   draggableWaypoints:false,
-  // //   createMarker:()=> {return false},
-  // //   lineOptions:{
-  // //     'styles':[{color: 'black', opacity: 0.15, weight: 9}, {color: 'white', opacity: 0.8, weight: 6}, {color: trip.color, opacity: 1, weight: 2}]
-  // //     }
-  // // }).addTo(map);
-  // }    
-  // )
+  //   L.Routing.control({
+  //     waypoints: trip.coords.map(item => L.latLng(item.lat,item.lon)),
+  //     router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"),
+  //     fitSelectedRoutes:false,
+  //     show:false,
+  //     addWaypoints:false,
+  //     draggableWaypoints:false,
+  //     createMarker:()=> {return false},
+  //     lineOptions:{
+  //       'styles':[{color: 'black', opacity: 0.15, weight: 9}, {color: 'white', opacity: 0.8, weight: 6}, {color: trip.color, opacity: 1, weight: 2}]
+  //       }
+  //   })
+  //   .addTo(map);
+  // })
 
   // var motoTrip = {
   //   "coords": [
