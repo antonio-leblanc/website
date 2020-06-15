@@ -43,7 +43,8 @@ function mapInit(){
   var map = L.map('travel-map', {
     center: [30, 8],
     zoom: 3.2,
-    layers: [NatGeo]
+    layers: [NatGeo],
+    minZoom: 2.5,
   });
     
   // DEFINING OVERLAY LAYERS
