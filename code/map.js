@@ -205,11 +205,11 @@ function mapInit(){
     'color':'green'
   }
 
-  map.on('popupopen', function(centerMarker) {
-    var cM = map.project(centerMarker.popup._latlng);
-    cM.y -= centerMarker.popup._container.clientHeight/2
-    map.setView(map.unproject(cM),16, {animate: true});
-});
+//   map.on('popupopen', function(centerMarker) {
+//     var cM = map.project(centerMarker.popup._latlng);
+//     cM.y -= centerMarker.popup._container.clientHeight/2
+//     map.setView(map.unproject(cM),16, {animate: true});
+// });
     
   var world_places = raw_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
   var asia = asia_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
