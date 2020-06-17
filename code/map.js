@@ -88,51 +88,10 @@ function mapInit(){
     {"name":"Singapore",'lat':1.2896700,'lon':103.8500700}
   ]
 
-  var Geneve = {
-    "coords": [
-      {"lat":45.74846, "lon":4.84671},
-      {'lat': 46.198767990, 'lon': 6.1420200321}
-    ],
-    'color':'green'
-  };
-    
-  var Chartreuse = {
-    "coords": [
-      {"lat":45.74846, "lon":4.84671},
-      {'lat': 45.36769249073883, 'lon': 5.811835378953392},
-    ],
-    'color':'green'
-  }
+  // EUROPE TRIPS
 
-  var stEtienne = {
-    "coords": [
-      {"lat":45.74846, "lon":4.84671},
-      {'lat': 45.59198029578722, 'lon': 4.766975542021293},
-      {'lat': 45.439105765, 'lon': 4.388047578},
-      {"lat":45.74846, "lon":4.84671},
-    ],
-    'color':'green'
-  }
-  var Suecia = {
-    "coords": [
-      {"lat":50.85045, "lon":4.348783, 'name':'Brussels', 'km':0, 'country':'Belgium'},
-      {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide', 'km':10, 'country':'Netherlands'},
-      {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn', 'km':10, 'country':'Netherlands'},
-      {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam", 'country':'Netherlands'},
-      {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere', 'country':'Netherlands'},
-      {'lat': 52.65503179660259, 'lon': 6.875491271940366, 'name':'Emlichheim', 'country':'Germany'},
-      {'lat': 52.96608015540326, 'lon': 8.504115872005947, 'name':'Uhlhorn', 'country':'Germany'},
-      {'lat': 53.53797179613342, 'lon': 10.010777261144359, 'name':'Hamburg', 'country':'Germany'}, 
-      {'lat': 54.10161731279758, 'lon': 10.86615648077714, 'name': 'Grömitz', 'km':900, 'country':'Germany'},
-      {'lat': 55.086038507659595, 'lon': 11.961258708985216, 'name':'Vordingborg', 'country':'Denmark'},
-      {'lat': 55.69344331855728, 'lon': 12.559649460460196, 'name':'Copenhagen', 'country':'Denmark'},
-      {'lat': 55.806410937687666, 'lon': 12.955778046535501, 'name':'Helsingborg', 'country':'Sweden'},
-      {'lat':55.6759400,'lon':12.56553, 'name':'Copenhagen', 'country':''},
-    ],
-    'color':'green'
-  }
 
-  var Suecia_polyline = {
+  var suecia_polyline = {
     "coords": [
       {"lat":50.85045, "lon":4.348783, 'name':'Brussels'},
       {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide'},
@@ -153,8 +112,78 @@ function mapInit(){
     ],
     'color':'green'
   }
+
+  var suecia_markers = {
+    "coords": [
+      {"lat":50.85045, "lon":4.348783, 'name':'Brussels', 'km':0, 'country':'Belgium'},
+      {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide', 'km':10, 'country':'Netherlands'},
+      {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn', 'km':10, 'country':'Netherlands'},
+      {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam", 'country':'Netherlands'},
+      {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere', 'country':'Netherlands'},
+      {'lat': 52.65503179660259, 'lon': 6.875491271940366, 'name':'Emlichheim', 'country':'Germany'},
+      {'lat': 52.96608015540326, 'lon': 8.504115872005947, 'name':'Uhlhorn', 'country':'Germany'},
+      {'lat': 53.53797179613342, 'lon': 10.010777261144359, 'name':'Hamburg', 'country':'Germany'}, 
+      {'lat': 54.10161731279758, 'lon': 10.86615648077714, 'name': 'Grömitz', 'km':900, 'country':'Germany'},
+      {'lat': 55.086038507659595, 'lon': 11.961258708985216, 'name':'Vordingborg', 'country':'Denmark'},
+      {'lat': 55.69344331855728, 'lon': 12.559649460460196, 'name':'Copenhagen', 'country':'Denmark'},
+      {'lat': 55.806410937687666, 'lon': 12.955778046535501, 'name':'Helsingborg', 'country':'Sweden'},
+      {'lat':55.6759400,'lon':12.56553, 'name':'Copenhagen', 'country':''},
+    ],
+    'color':'green'
+  }
+  
+
+  var geneve_polyline = {
+    "coords": [
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414},
+      {'lat': 46.198767990, 'lon': 6.1420200321}
+    ],
+    'color':'yellow'
+  };
+
+  var geneve_marker = {
+    "coords": [
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+      {'lat': 46.198767990, 'lon': 6.1420200321,  'name':'Genebra', 'country':'Switzerland'},
+    ],
+    'color':'green'
+  };
     
-  var Loire = {
+  var chartreuse_polyline = {
+    "coords": [
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414,},
+      {'lat': 45.36769249073883, 'lon': 5.811835378953392},
+    ],
+    'color':'green'
+  }
+
+  var chartreuse_marker = {
+    "coords": [
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+      {'lat': 45.36769249073883, 'lon': 5.811835378953392, 'name':'Le Grand Som', 'country':'Alpes'},
+    ],
+    'color':'green'
+  }
+
+  var stEtienne_polyline = {
+    "coords": [
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414,},
+      {'lat': 45.59198029578722, 'lon': 4.766975542021293},
+      {'lat': 45.439105765, 'lon': 4.388047578},
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414},
+    ],
+    'color':'purple'
+  }
+
+  var stEtienne_markers = {
+    "coords": [
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+      {'lat': 45.439105765, 'lon': 4.388047578, 'name':'Saint-Etienne', 'country':'France'},
+    ],
+    'color':'purple'
+  }
+
+  var loire_polyline = {
     "coords": [
       {'lat': 47.06095274, 'lon': -0.8799561280},
       {'lat': 47.25883330459712, 'lon': -0.0787703384809957},
@@ -164,29 +193,52 @@ function mapInit(){
     ],
     'color':'green'
   }
+
+  var loire_markers = {
+    "coords": [
+      {'lat': 47.06095274, 'lon': -0.8799561280, 'name':'', 'country':''},
+      {'lat': 47.25883330459712, 'lon': -0.0787703384809957, 'name':'', 'country':''},
+      {'lat': 47.38786925483467, 'lon': 0.6881933289343722, 'name':'', 'country':''},
+      {'lat': 47.58804904063447, 'lon': 1.3321037358737446, 'name':'', 'country':''},
+      {"lat":47.9028900 , "lon":1.9038900, 'name':'', 'country':''}
+    ],
+    'color':'green'
+  }
+
+  map.on('popupopen', function(centerMarker) {
+    var cM = map.project(centerMarker.popup._latlng);
+    cM.y -= centerMarker.popup._container.clientHeight/2
+    map.setView(map.unproject(cM),16, {animate: true});
+});
     
   var world_places = raw_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
   var asia = asia_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
 
-  var trips = [Suecia_polyline, Geneve, Loire, Chartreuse, stEtienne];
+  var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline];
+  var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers];
   
-  trips.forEach(trip=>{
+  trips_polyline.forEach(trip=>{
     L.polyline(
       trip.coords.map(item => [item.lat,item.lon]), 
       {color: trip.color}
       ).addTo(map);
   });
 
+  
   var asiaIcon = L.divIcon({
     className: 'asia-icon',
     iconSize: [15, 15],
   });
 
+  trips_markers.forEach(trip=>{
+      map.addLayer(L.layerGroup(
+                  trip.coords.map((item,index) => 
+                  L.marker([item.lat, item.lon], {icon:asiaIcon})
+                  .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+','+item.country))
+                  ));
+              
+    });
 
-  var suecia_markers = 
-  Suecia.coords.map((item,index) => 
-      L.marker([item.lat, item.lon], {icon:asiaIcon})
-      .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+','+item.country));
 
   var customIcon = L.icon({
     iconUrl: '../images/marker.svg',
@@ -201,9 +253,9 @@ function mapInit(){
       L.marker([item.location.lat, item.location.lon], {icon:asiaIcon})
       .bindPopup('<strong>Step '+index+':</strong> '+item.location.full_detail));
 
-  var polyline = L.polyline(
+  var asia_polyline = L.polyline(
     polarstep_trip.all_steps.map(item =>[item.location.lat, item.location.lon]));
-  map.fitBounds(polyline.getBounds());
+  // map.fitBounds(asia_polyline.getBounds());
 
   var plane_style = {'color':'black', 'dashArray': '5'};
   var transport_style = {'color':'blue'};
@@ -238,7 +290,6 @@ function mapInit(){
   // ADDING CONTROL LAYERS
   L.control.layers(baseMaps,overlayMaps,{collapsed:false}).addTo(map);   
   map.addLayer(L.layerGroup(polarstep_marker));
-  map.addLayer(L.layerGroup(suecia_markers));
   // ADDING SCALE
   L.control.scale({'imperial':false, maxWidth:200}).addTo(map);
   
@@ -266,7 +317,7 @@ function mapInit(){
   })
   // ROUTING
   // 100 000 free requests
-  // trips.forEach(trip=> {
+  // trips_polyline.forEach(trip=> {
   //   L.Routing.control({
   //     waypoints: trip.coords.map(item => L.latLng(item.lat,item.lon)),
   //     router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"),
