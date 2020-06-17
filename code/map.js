@@ -115,10 +115,38 @@ function mapInit(){
   }
   var Suecia = {
     "coords": [
-      {"lat":50.85045, "lon":4.348783},
-      {'lat':52.37403000,'lon':4.8896900},
-      {'lat': 52.71673533, 'lon': 7.2899137200},
+      {"lat":50.85045, "lon":4.348783, 'name':'Brussels', 'km':0, 'country':'Belgium'},
+      {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide', 'km':10, 'country':'Netherlands'},
+      {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn', 'km':10, 'country':'Netherlands'},
+      {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam", 'country':'Netherlands'},
+      {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere', 'country':'Netherlands'},
+      {'lat': 52.65503179660259, 'lon': 6.875491271940366, 'name':'Emlichheim', 'country':'Germany'},
+      {'lat': 52.96608015540326, 'lon': 8.504115872005947, 'name':'Uhlhorn', 'country':'Germany'},
+      {'lat': 53.53797179613342, 'lon': 10.010777261144359, 'name':'Hamburg', 'country':'Germany'}, 
+      {'lat': 54.10161731279758, 'lon': 10.86615648077714, 'name': 'Grömitz', 'km':900, 'country':'Germany'},
+      {'lat': 55.086038507659595, 'lon': 11.961258708985216, 'name':'Vordingborg', 'country':'Denmark'},
+      {'lat': 55.69344331855728, 'lon': 12.559649460460196, 'name':'Copenhagen', 'country':'Denmark'},
+      {'lat': 55.806410937687666, 'lon': 12.955778046535501, 'name':'Helsingborg', 'country':'Sweden'},
+      {'lat':55.6759400,'lon':12.56553, 'name':'Copenhagen', 'country':''},
+    ],
+    'color':'green'
+  }
+
+  var Suecia_polyline = {
+    "coords": [
+      {"lat":50.85045, "lon":4.348783, 'name':'Brussels'},
+      {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide'},
+      {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn'},
+      {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam"},
+      {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere'},
+      {'lat': 52.65503179660259, 'lon': 6.875491271940366, 'name':'Emlichheim'},
+      {'lat': 52.96608015540326, 'lon': 8.504115872005947, 'name':'Uhlhorn'},
+      {'lat': 53.53797179613342, 'lon': 10.010777261144359, 'name':'Hamburg'}, 
+      {'lat': 54.10161731279758, 'lon': 10.86615648077714, 'name': 'Grömitz'},
+      {'lat': 55.086038507659595, 'lon': 11.961258708985216, 'name':'Vordingborg'},
+      {'lat': 55.69344331855728, 'lon': 12.559649460460196, 'name':'Copenhagen'},
       {'lat': 55.601896, 'lon': 12.9962475},
+      {'lat': 55.806410937687666, 'lon': 12.955778046535501, 'name':'Helsingborg'},
       {"lat":56.04673 , "lon":12.69437},
       {'lat': 55.88142919, 'lon': 12.479472847},
       {'lat':55.6759400,'lon':12.56553},
@@ -140,7 +168,7 @@ function mapInit(){
   var world_places = raw_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
   var asia = asia_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
 
-  var trips = [Suecia, Geneve, Loire, Chartreuse, stEtienne];
+  var trips = [Suecia_polyline, Geneve, Loire, Chartreuse, stEtienne];
   
   trips.forEach(trip=>{
     L.polyline(
@@ -149,15 +177,22 @@ function mapInit(){
       ).addTo(map);
   });
 
+  var asiaIcon = L.divIcon({
+    className: 'asia-icon',
+    iconSize: [15, 15],
+  });
+
+
+  var suecia_markers = 
+  Suecia.coords.map((item,index) => 
+      L.marker([item.lat, item.lon], {icon:asiaIcon})
+      .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+','+item.country));
+
   var customIcon = L.icon({
     iconUrl: '../images/marker.svg',
     iconSize:     [38, 95], 
 });
   
-  var asiaIcon = L.divIcon({
-    className: 'asia-icon',
-    iconSize: [15, 15],
-  });
 
   polarstep_trip = get_polarsteps_trip();
   // console.log(polarstep_trip)
@@ -203,6 +238,7 @@ function mapInit(){
   // ADDING CONTROL LAYERS
   L.control.layers(baseMaps,overlayMaps,{collapsed:false}).addTo(map);   
   map.addLayer(L.layerGroup(polarstep_marker));
+  map.addLayer(L.layerGroup(suecia_markers));
   // ADDING SCALE
   L.control.scale({'imperial':false, maxWidth:200}).addTo(map);
   
