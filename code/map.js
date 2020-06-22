@@ -231,6 +231,35 @@ function mapInit(){
     'color':'green'
   }
 
+  var rio_polyline = {
+    "coords": [
+      {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro"},
+      {'lat': -22.9309512477637, 'lon': -43.176862450709294},
+      {'lat': -22.90388772852338, 'lon': -43.17428598929821, 'name':'pracaXV'},
+      {'lat': -22.932299382920483, 'lon': -43.09883573474055, 'name':'charitas'},
+      {'lat': -22.943298928639614, 'lon': -43.05789076641154},
+      {'lat': -22.950328888419577, 'lon': -43.02716858702307},
+      {'lat': -22.962432768886035, 'lon': -43.03094739709266},
+      {'lat': -22.968255335888855, 'lon': -43.0065872020249},
+      {'lat': -22.967970024592375, 'lon': -42.88862988867872, 'name':'Maricá'},
+      {'lat': -22.945421885335964, 'lon': -42.692481134543144},
+      {'lat': -22.925229540814776, 'lon': -42.60956629545805},
+      {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo"},
+      {'lat': -22.93065437341688, 'lon': -42.06015056191806},
+      {'lat': -22.966538824055444, 'lon': -42.01591692976551},
+      {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo"},
+    ],
+    'color':'green'
+  }
+
+  var rio_markers = {
+    "coords": [
+      {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro", 'country':''},
+      {'lat': -22.967970024592375, 'lon': -42.88862988867872, 'name':'Maricá', 'country':''},
+      {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo", 'country':''}
+    ],
+  }
+
 //   map.on('popupopen', function(centerMarker) {
 //     var cM = map.project(centerMarker.popup._latlng);
 //     cM.y -= centerMarker.popup._container.clientHeight/2
@@ -252,8 +281,8 @@ function mapInit(){
     iconSize:     [38, 95], 
   });
     
-  var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline];
-  var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers];
+  var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline, rio_polyline];
+  var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers, rio_markers];
   
   if (!USE_ROUTING_API) {
     trips_polyline.forEach(trip=>{
@@ -272,7 +301,7 @@ function mapInit(){
       map.addLayer(L.layerGroup(
                   trip.coords.map((item,index) => 
                   L.marker([item.lat, item.lon], {icon:divIcon})
-                  .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+','+item.country))
+                  .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+', '+item.country))
                   ));
               
   });
