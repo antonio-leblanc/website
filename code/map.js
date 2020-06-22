@@ -48,7 +48,7 @@ function mapInit(){
   });
     
   // DEFINING OVERLAY LAYERS
-  var raw_places = 
+  var countries = 
   [
     {"name":"Brazil",'lat':-22.9027800,'lon':-43.2075000},
     {"name":"USA",'lat':40.7142700,'lon':-74.005970},
@@ -88,8 +88,10 @@ function mapInit(){
     {"name":"Singapore",'lat':1.2896700,'lon':103.8500700}
   ]
 
-  // EUROPE TRIPS
+  var world_places = countries.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
+  var asia = asia_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
 
+  // EUROPE TRIPS DATA
 
   var suecia_polyline = {
     "coords": [
@@ -136,23 +138,42 @@ function mapInit(){
   var geneve_polyline = {
     "coords": [
       {'lat': 45.76879073586087, 'lon': 4.827875117075414},
-      {'lat': 46.198767990, 'lon': 6.1420200321}
+      {'lat': 45.78981167115057, 'lon': 5.144304389480467},
+      {'lat': 45.94525764514836, 'lon': 5.368856805249225},
+      {'lat': 45.825856401465614, 'lon': 5.619931779294883},
+      {'lat': 45.84884129344235, 'lon': 5.779328858594327},
+      {'lat': 46.09914220571156, 'lon': 5.826048692182086},
+      {'lat': 46.14100840083502, 'lon': 6.07389268032252},
+      {'lat': 46.198767990, 'lon': 6.1420200321, 'name':'Genebra'},
+      {'lat': 46.165409420484764, 'lon': 5.762395551884466},
+      {'lat': 46.063446607693926, 'lon': 5.315808907295474},
+      {'lat': 45.906539413908554, 'lon': 5.219003794521637},
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+
     ],
-    'color':'yellow'
+    'color':'darkgreen'
   };
 
   var geneve_marker = {
     "coords": [
       {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+      {'lat': 45.78981167115057, 'lon': 5.144304389480467, 'name':'Jons', 'country':'France'},
       {'lat': 46.198767990, 'lon': 6.1420200321,  'name':'Genebra', 'country':'Switzerland'},
     ],
-    'color':'green'
+    'color':'darkgreen'
   };
     
   var chartreuse_polyline = {
     "coords": [
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414,},
-      {'lat': 45.36769249073883, 'lon': 5.811835378953392},
+      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':"Lyon"},
+      {'lat': 45.58584800678515, 'lon': 5.287801373623045},
+      {'lat': 45.5699775487153, 'lon': 5.427602239260964, 'name':"StJeanSoudain"},
+      {'lat': 45.52840634449379, 'lon': 5.6923039071401735},
+      {'lat': 45.43656650605007, 'lon': 5.751958739052535},
+      {'lat': 45.389741737815044, 'lon': 5.735370383796675, 'name':'StLaurent'},
+      {'lat': 45.34991210549677, 'lon': 5.7839485294409885},
+      {'lat': 45.373289083477836, 'lon': 5.800885264170118, 'name':'Couvent'},
+      {'lat': 45.36769249073883, 'lon': 5.811835378953392, 'name': 'Grand Som'},
     ],
     'color':'green'
   }
@@ -172,7 +193,7 @@ function mapInit(){
       {'lat': 45.439105765, 'lon': 4.388047578},
       {'lat': 45.76879073586087, 'lon': 4.827875117075414},
     ],
-    'color':'purple'
+    'color':'lightgreen'
   }
 
   var stEtienne_markers = {
@@ -185,22 +206,27 @@ function mapInit(){
 
   var loire_polyline = {
     "coords": [
-      {'lat': 47.06095274, 'lon': -0.8799561280},
+      {'lat': 47.0643188, 'lon': -0.8827913, 'name':'Cholet', 'country':''},
       {'lat': 47.25883330459712, 'lon': -0.0787703384809957},
+      {'lat': 47.23525271149641, 'lon': 0.0280897671379865, 'name':'Saumur', 'country':''},
+      {'lat': 47.23927161555011, 'lon': 0.17649169752213203, 'name':'Saumur', 'country':''},
       {'lat': 47.38786925483467, 'lon': 0.6881933289343722},
-      {'lat': 47.58804904063447, 'lon': 1.3321037358737446},
-      {"lat":47.9028900 , "lon":1.9038900}
+      {'lat': 47.41336949548184, 'lon': 0.9864522507992348},
+      {'lat': 47.47690754350151, 'lon': 1.15681219468061, 'name' : 'Amboise', 'country':''},
+    
+      {'lat': 47.58804904063447, 'lon': 1.3321037358737446, 'name':'Blois'},
+      {'lat': 47.61620825840323, 'lon': 1.5169875194941576, 'name':'Chambord'},
+      {'lat': 47.892615593840304, 'lon': 1.8880142217503961, 'name':'Orléans', 'country':''}
     ],
     'color':'green'
   }
 
   var loire_markers = {
     "coords": [
-      {'lat': 47.06095274, 'lon': -0.8799561280, 'name':'', 'country':''},
-      {'lat': 47.25883330459712, 'lon': -0.0787703384809957, 'name':'', 'country':''},
-      {'lat': 47.38786925483467, 'lon': 0.6881933289343722, 'name':'', 'country':''},
-      {'lat': 47.58804904063447, 'lon': 1.3321037358737446, 'name':'', 'country':''},
-      {"lat":47.9028900 , "lon":1.9038900, 'name':'', 'country':''}
+      {'lat': 47.0643188, 'lon': -0.8827913, 'name':'Cholet', 'country':''},
+      {'lat': 47.23927161555011, 'lon': 0.17649169752213203, 'name':'Saumur', 'country':''},
+      {'lat': 47.47690754350151, 'lon': 1.15681219468061, 'name' : 'Amboise', 'country':''},
+      {'lat': 47.892615593840304, 'lon': 1.8880142217503961, 'name':'Orléans', 'country':''}
     ],
     'color':'green'
   }
@@ -210,56 +236,64 @@ function mapInit(){
 //     cM.y -= centerMarker.popup._container.clientHeight/2
 //     map.setView(map.unproject(cM),16, {animate: true});
 // });
-    
-  var world_places = raw_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
-  var asia = asia_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
 
-  var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline];
-  var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers];
-  
-  trips_polyline.forEach(trip=>{
-    L.polyline(
-      trip.coords.map(item => [item.lat,item.lon]), 
-      {color: trip.color}
-      ).addTo(map);
-  });
 
+  // ADDING TRIPS TO MAP
+
+  var USE_ROUTING_API = false
   
-  var asiaIcon = L.divIcon({
-    className: 'asia-icon',
+  var divIcon = L.divIcon({
+    className: 'div-icon',
     iconSize: [15, 15],
   });
-
-  trips_markers.forEach(trip=>{
-      map.addLayer(L.layerGroup(
-                  trip.coords.map((item,index) => 
-                  L.marker([item.lat, item.lon], {icon:asiaIcon})
-                  .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+','+item.country))
-                  ));
-              
-    });
-
 
   var customIcon = L.icon({
     iconUrl: '../images/marker.svg',
     iconSize:     [38, 95], 
-});
+  });
+    
+  var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline];
+  var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers];
   
+  if (!USE_ROUTING_API) {
+    trips_polyline.forEach(trip=>{
+      L.polyline(
+        trip.coords.map(item => [item.lat,item.lon]), 
+        {color: 'white', weight:7, opacity:0.7}
+        ).addTo(map);
+      L.polyline(
+        trip.coords.map(item => [item.lat,item.lon]), 
+        {color: trip.color}
+        ).addTo(map);
+    });
+  }
+
+  trips_markers.forEach(trip=>{
+      map.addLayer(L.layerGroup(
+                  trip.coords.map((item,index) => 
+                  L.marker([item.lat, item.lon], {icon:divIcon})
+                  .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+','+item.country))
+                  ));
+              
+  });
+
+  
+  // ASIA TRIP
 
   polarstep_trip = get_polarsteps_trip();
   // console.log(polarstep_trip)
   var polarstep_marker = 
     polarstep_trip.all_steps.map((item,index) => 
-      L.marker([item.location.lat, item.location.lon], {icon:asiaIcon})
+      L.marker([item.location.lat, item.location.lon], {icon:divIcon})
       .bindPopup('<strong>Step '+index+':</strong> '+item.location.full_detail));
 
   var asia_polyline = L.polyline(
     polarstep_trip.all_steps.map(item =>[item.location.lat, item.location.lon]));
   // map.fitBounds(asia_polyline.getBounds());
 
-  var plane_style = {'color':'black', 'dashArray': '5'};
-  var transport_style = {'color':'blue'};
-  var motorbike_style = {'color':'red'};
+  var plane_style = {'color':'black', 'dashArray': '5', 'opacity':0.8};
+  var transport_style = {'color':'blue', 'opacity':0.8};
+  var motorbike_style = {'color':'red', 'opacity':0.8};
 
   var trenches = [
     {'start':0, 'end':2, 'style':plane_style},
@@ -277,13 +311,16 @@ function mapInit(){
    trenches.forEach( trench => {
     L.polyline(
       polarstep_trip.all_steps.slice(trench.start,trench.end).map(item =>[item.location.lat, item.location.lon]),
+      {color: 'white', weight:7, opacity:0.7}
+      ).addTo(map);
+    L.polyline(
+      polarstep_trip.all_steps.slice(trench.start,trench.end).map(item =>[item.location.lat, item.location.lon]),
       trench.style)
       .addTo(map);
   });
 
   var overlayMaps = {
     "Countries": L.layerGroup(world_places),
-    // "AsiaTrip": L.layerGroup(polarstep_marker),
     // "Asia": L.layerGroup(asia),
   };
 
@@ -317,22 +354,23 @@ function mapInit(){
   })
   // ROUTING
   // 100 000 free requests
-  // trips_polyline.forEach(trip=> {
-  //   L.Routing.control({
-  //     waypoints: trip.coords.map(item => L.latLng(item.lat,item.lon)),
-  //     router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"),
-  //     fitSelectedRoutes:false,
-  //     show:false,
-  //     addWaypoints:false,
-  //     draggableWaypoints:false,
-  //     createMarker:()=> {return false},
-  //     lineOptions:{
-  //       'styles':[{color: 'black', opacity: 0.15, weight: 9}, {color: 'white', opacity: 0.8, weight: 6}, {color: trip.color, opacity: 1, weight: 2}]
-  //       }
-  //   })
-  //   .addTo(map);
-  // })
-
+  if (USE_ROUTING_API){
+    trips_polyline.forEach(trip=> {
+      L.Routing.control({
+        waypoints: trip.coords.map(item => L.latLng(item.lat,item.lon)),
+        router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"),
+        fitSelectedRoutes:false,
+        show:false,
+        addWaypoints:false,
+        draggableWaypoints:false,
+        createMarker:()=> {return false},
+        lineOptions:{
+          'styles':[{color: 'black', opacity: 0.15, weight: 9}, {color: 'white', opacity: 0.8, weight: 6}, {color: trip.color, opacity: 1, weight: 2}]
+          }
+      })
+      .addTo(map);
+    })
+  }
   // var motoTrip = {
   //   "coords": [
   //     {'lat': 20.9866677862, 'lon': 105.8633968, "name":"Hanoi"},

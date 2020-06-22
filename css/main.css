@@ -152,7 +152,7 @@ body {
 }
 
 .img-section {
-  min-height: 130vh;
+  min-height: 100vh;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -605,7 +605,7 @@ body {
   text-align: left;
 }
 
-.asia-icon {
+.div-icon {
   width: 100px;
   height: 100px;
   border: 1px solid black;
@@ -624,9 +624,18 @@ body {
   color: #555;
 }
 
+.map-legend div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .map-legend i {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 4px;
   float: left;
   margin-right: 8px;
   opacity: 0.7;

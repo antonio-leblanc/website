@@ -1,6 +1,5 @@
 
-// import { locations_json } from "./polarsteps_data/locations";
-// import { mapInit } from "./map";
+
 //   <------------ On load Functions ------------->
 $(window).on("load",function(){
     
