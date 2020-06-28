@@ -1,24 +1,22 @@
 
 
 //   <------------ On load Functions ------------->
-$(window).on("load",function(){
-    
-    //   <------------ Fade Loader ------------->
-    $(function(){
-        $(".loader-wrapper").fadeOut("slow");
-      });
-    //   <------------ Typed Funcion ------------->
-    $(function(){
-      $(".typed-element").typed({
-          strings: ["Mechanical Engineering", "Cycling","Data Science", 
-           "Piano","Software Development","Skateboarding", "Adventure"],
-          typeSpeed: 40,
-          backSpeed: 20,
-          loop:true,
-      });
+$(window).on("load",
+function(){ 
+  $(".loader-wrapper").fadeOut("slow");
+
+  $(".typed-element").typed({
+      strings: ["ForestFire Engineering", "Cycling","Software Development",
+      "Piano","Data Science","Skateboarding", "Adventure"],
+      typeSpeed: 35,
+      backSpeed: 15,
+      loop:true,
     });
-    mapInit()
-  });
+
+  $("#travel-map").css('visibility', 'visible')
+
+  }
+);
 
 //   <------------ Header Disappears ------------->
 

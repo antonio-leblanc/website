@@ -1,405 +1,404 @@
-function mapInit(){
+// DEFIING BASELAYERS
 
-  // DEFIING BASELAYERS
-  var Dark = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
-    attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
-    bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
-    minZoom: 1,
-    maxZoom: 8,
-    format: 'jpg',
-    time: '',
-    tilematrixset: 'GoogleMapsCompatible_Level'
-  });
+var Dark = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
+  attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
+  bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
+  minZoom: 1,
+  maxZoom: 8,
+  format: 'jpg',
+  time: '',
+  tilematrixset: 'GoogleMapsCompatible_Level'
+});
+
+var Streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+var ArcGis = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+})
+
+var NatGeo = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+})
+    
+var topoLayer = L.tileLayer(
+  'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{
+  attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+  maxZoom: 18,
+})
+
+var baseMaps = {
+  "<span class='layer-legend'>NatGeo</span>": NatGeo,
+  "Satellite":ArcGis,
+  "Streets":Streets,
+  "Topographic": topoLayer,
+  "Night":Dark,
+};
+
+
+// DEFINING THE MAP
+var map = L.map('travel-map', {
+  center: [30, 8],
+  zoom: 3.2,
+  layers: [NatGeo],
+  minZoom: 2.5,
+});
+    
+// DEFINING OVERLAY LAYERS
+var countries = 
+[
+  {"name":"Brazil",'lat':-22.9027800,'lon':-43.2075000},
+  {"name":"USA",'lat':40.7142700,'lon':-74.005970},
   
-  var Streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  })
-
-  var ArcGis = L.tileLayer(
-    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
-  })
-
-  var NatGeo = L.tileLayer(
-    'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-  })
-      
-  var topoLayer = L.tileLayer(
-    'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{
-    attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
-    maxZoom: 18,
-  })
-
-  var baseMaps = {
-    "<span class='layer-legend'>NatGeo</span>": NatGeo,
-    "Satellite":ArcGis,
-    "Streets":Streets,
-    "Topographic": topoLayer,
-    "Night":Dark,
-  };
+  {"name":"France",'lat':45.7484600,'lon':4.8467100},
+  {"name":"Spain",'lat':41.38879000,'lon':2.1589900},
+  {"name":"Portugal",'lat':38.7166700,'lon':-9.1333300},
+  {"name":"Italy",'lat':41.8919300,'lon':12.5113300},
   
-  // DEFINING THE MAP
-  var map = L.map('travel-map', {
-    center: [30, 8],
-    zoom: 3.2,
-    layers: [NatGeo],
-    minZoom: 2.5,
-  });
-    
-  // DEFINING OVERLAY LAYERS
-  var countries = 
-  [
-    {"name":"Brazil",'lat':-22.9027800,'lon':-43.2075000},
-    {"name":"USA",'lat':40.7142700,'lon':-74.005970},
-    
-    {"name":"France",'lat':45.7484600,'lon':4.8467100},
-    {"name":"Spain",'lat':41.38879000,'lon':2.1589900},
-    {"name":"Portugal",'lat':38.7166700,'lon':-9.1333300},
-    {"name":"Italy",'lat':41.8919300,'lon':12.5113300},
-    
-    {"name":"Germany",'lat':52.5243700,'lon':13.4105300},
-    {"name":"Switzerland",'lat':46.5160000,'lon':6.6328200},
-    {"name":"Czech Republic",'lat':50.0880400,'lon':14.4207600},
-    {"name":"Hungary",'lat':47.49801,'lon':19.039910},
-    {"name":"Austria",'lat':48.2084900,'lon':16.3720800},
-    
-    {"name":"Netherlands",'lat':52.37403000,'lon':4.8896900},
-    {"name":"Denmark",'lat':55.6759400,'lon':12.56553},
-    {"name":"Belgium",'lat':50.85045,'lon':4.348783},
-    {"name":"Sweden",'lat':56.04673,'lon':12.69437},
-    
-    {"name":"Bulgaria",'lat':42.6975100,'lon':23.3241500},
-    {"name":"Serbia",'lat':44.8040100,'lon':20.4651300},
-    {"name":"Croatia",'lat':45.81444000,'lon':15.9779800},
-    {"name":"Slovenia",'lat':46.3691700,'lon':14.1136100},
-    
-    {"name":"Morocco",'lat':31.669746,'lon':-7.973328}
-  ]
-  var asia_places = 
-      [
-    {"name":"Thailand",'lat':13.7539800,'lon':100.5014400},
-    {"name":"Myanmar",'lat':16.8052800,'lon':96.1561100},
-    {"name":"Hong Kong",'lat':22.2855200,'lon':114.1576900},
-    {"name":"Vietnam",'lat':21.0245000,'lon':105.8411700},
-    {"name":"Laos", 'lat': 19.882003512, 'lon': 102.1405166},
-    {"name":"Cambodia",'lat':11.5624500,'lon':104.9160100},
-    {"name":"Indonesia",'lat':-8.65,'lon':115.21667},
-    {"name":"Singapore",'lat':1.2896700,'lon':103.8500700}
-  ]
-
-  var world_places = countries.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
-  var asia = asia_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
-
-  // EUROPE TRIPS DATA
-
-  var suecia_polyline = {
-    "coords": [
-      {"lat":50.85045, "lon":4.348783, 'name':'Brussels'},
-      {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide'},
-      {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn'},
-      {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam"},
-      {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere'},
-      {'lat': 52.65503179660259, 'lon': 6.875491271940366, 'name':'Emlichheim'},
-      {'lat': 52.96608015540326, 'lon': 8.504115872005947, 'name':'Uhlhorn'},
-      {'lat': 53.53797179613342, 'lon': 10.010777261144359, 'name':'Hamburg'}, 
-      {'lat': 54.10161731279758, 'lon': 10.86615648077714, 'name': 'Grömitz'},
-      {'lat': 55.086038507659595, 'lon': 11.961258708985216, 'name':'Vordingborg'},
-      {'lat': 55.69344331855728, 'lon': 12.559649460460196, 'name':'Copenhagen'},
-      {'lat': 55.601896, 'lon': 12.9962475},
-      {'lat': 55.806410937687666, 'lon': 12.955778046535501, 'name':'Helsingborg'},
-      {"lat":56.04673 , "lon":12.69437},
-      {'lat': 55.88142919, 'lon': 12.479472847},
-      {'lat':55.6759400,'lon':12.56553},
-    ],
-    'color':'green'
-  }
-
-  var suecia_markers = {
-    "coords": [
-      {"lat":50.85045, "lon":4.348783, 'name':'Brussels', 'km':0, 'country':'Belgium'},
-      {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide', 'km':10, 'country':'Netherlands'},
-      {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn', 'km':10, 'country':'Netherlands'},
-      {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam", 'country':'Netherlands'},
-      {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere', 'country':'Netherlands'},
-      {'lat': 52.65503179660259, 'lon': 6.875491271940366, 'name':'Emlichheim', 'country':'Germany'},
-      {'lat': 52.96608015540326, 'lon': 8.504115872005947, 'name':'Uhlhorn', 'country':'Germany'},
-      {'lat': 53.53797179613342, 'lon': 10.010777261144359, 'name':'Hamburg', 'country':'Germany'}, 
-      {'lat': 54.10161731279758, 'lon': 10.86615648077714, 'name': 'Grömitz', 'km':900, 'country':'Germany'},
-      {'lat': 55.086038507659595, 'lon': 11.961258708985216, 'name':'Vordingborg', 'country':'Denmark'},
-      {'lat': 55.69344331855728, 'lon': 12.559649460460196, 'name':'Copenhagen', 'country':'Denmark'},
-      {'lat': 55.806410937687666, 'lon': 12.955778046535501, 'name':'Helsingborg', 'country':'Sweden'},
-      {'lat':55.6759400,'lon':12.56553, 'name':'Copenhagen', 'country':''},
-    ],
-    'color':'green'
-  }
+  {"name":"Germany",'lat':52.5243700,'lon':13.4105300},
+  {"name":"Switzerland",'lat':46.5160000,'lon':6.6328200},
+  {"name":"Czech Republic",'lat':50.0880400,'lon':14.4207600},
+  {"name":"Hungary",'lat':47.49801,'lon':19.039910},
+  {"name":"Austria",'lat':48.2084900,'lon':16.3720800},
   
-
-  var geneve_polyline = {
-    "coords": [
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414},
-      {'lat': 45.78981167115057, 'lon': 5.144304389480467},
-      {'lat': 45.94525764514836, 'lon': 5.368856805249225},
-      {'lat': 45.825856401465614, 'lon': 5.619931779294883},
-      {'lat': 45.84884129344235, 'lon': 5.779328858594327},
-      {'lat': 46.09914220571156, 'lon': 5.826048692182086},
-      {'lat': 46.14100840083502, 'lon': 6.07389268032252},
-      {'lat': 46.198767990, 'lon': 6.1420200321, 'name':'Genebra'},
-      {'lat': 46.165409420484764, 'lon': 5.762395551884466},
-      {'lat': 46.063446607693926, 'lon': 5.315808907295474},
-      {'lat': 45.906539413908554, 'lon': 5.219003794521637},
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
-
-    ],
-    'color':'darkgreen'
-  };
-
-  var geneve_marker = {
-    "coords": [
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
-      {'lat': 45.78981167115057, 'lon': 5.144304389480467, 'name':'Jons', 'country':'France'},
-      {'lat': 46.198767990, 'lon': 6.1420200321,  'name':'Genebra', 'country':'Switzerland'},
-    ],
-    'color':'darkgreen'
-  };
-    
-  var chartreuse_polyline = {
-    "coords": [
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':"Lyon"},
-      {'lat': 45.58584800678515, 'lon': 5.287801373623045},
-      {'lat': 45.5699775487153, 'lon': 5.427602239260964, 'name':"StJeanSoudain"},
-      {'lat': 45.52840634449379, 'lon': 5.6923039071401735},
-      {'lat': 45.43656650605007, 'lon': 5.751958739052535},
-      {'lat': 45.389741737815044, 'lon': 5.735370383796675, 'name':'StLaurent'},
-      {'lat': 45.34991210549677, 'lon': 5.7839485294409885},
-      {'lat': 45.373289083477836, 'lon': 5.800885264170118, 'name':'Couvent'},
-      {'lat': 45.36769249073883, 'lon': 5.811835378953392, 'name': 'Grand Som'},
-    ],
-    'color':'green'
-  }
-
-  var chartreuse_marker = {
-    "coords": [
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
-      {'lat': 45.36769249073883, 'lon': 5.811835378953392, 'name':'Le Grand Som', 'country':'Alpes'},
-    ],
-    'color':'green'
-  }
-
-  var stEtienne_polyline = {
-    "coords": [
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414,},
-      {'lat': 45.59198029578722, 'lon': 4.766975542021293},
-      {'lat': 45.439105765, 'lon': 4.388047578},
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414},
-    ],
-    'color':'lightgreen'
-  }
-
-  var stEtienne_markers = {
-    "coords": [
-      {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
-      {'lat': 45.439105765, 'lon': 4.388047578, 'name':'Saint-Etienne', 'country':'France'},
-    ],
-    'color':'purple'
-  }
-
-  var loire_polyline = {
-    "coords": [
-      {'lat': 47.0643188, 'lon': -0.8827913, 'name':'Cholet', 'country':''},
-      {'lat': 47.25883330459712, 'lon': -0.0787703384809957},
-      {'lat': 47.23525271149641, 'lon': 0.0280897671379865, 'name':'Saumur', 'country':''},
-      {'lat': 47.23927161555011, 'lon': 0.17649169752213203, 'name':'Saumur', 'country':''},
-      {'lat': 47.38786925483467, 'lon': 0.6881933289343722},
-      {'lat': 47.41336949548184, 'lon': 0.9864522507992348},
-      {'lat': 47.47690754350151, 'lon': 1.15681219468061, 'name' : 'Amboise', 'country':''},
-    
-      {'lat': 47.58804904063447, 'lon': 1.3321037358737446, 'name':'Blois'},
-      {'lat': 47.61620825840323, 'lon': 1.5169875194941576, 'name':'Chambord'},
-      {'lat': 47.892615593840304, 'lon': 1.8880142217503961, 'name':'Orléans', 'country':''}
-    ],
-    'color':'green'
-  }
-
-  var loire_markers = {
-    "coords": [
-      {'lat': 47.0643188, 'lon': -0.8827913, 'name':'Cholet', 'country':''},
-      {'lat': 47.23927161555011, 'lon': 0.17649169752213203, 'name':'Saumur', 'country':''},
-      {'lat': 47.47690754350151, 'lon': 1.15681219468061, 'name' : 'Amboise', 'country':''},
-      {'lat': 47.892615593840304, 'lon': 1.8880142217503961, 'name':'Orléans', 'country':''}
-    ],
-    'color':'green'
-  }
-
-  var rio_polyline = {
-    "coords": [
-      {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro"},
-      {'lat': -22.9309512477637, 'lon': -43.176862450709294},
-      {'lat': -22.90388772852338, 'lon': -43.17428598929821, 'name':'pracaXV'},
-      {'lat': -22.932299382920483, 'lon': -43.09883573474055, 'name':'charitas'},
-      {'lat': -22.943298928639614, 'lon': -43.05789076641154},
-      {'lat': -22.950328888419577, 'lon': -43.02716858702307},
-      {'lat': -22.962432768886035, 'lon': -43.03094739709266},
-      {'lat': -22.968255335888855, 'lon': -43.0065872020249},
-      {'lat': -22.967970024592375, 'lon': -42.88862988867872, 'name':'Maricá'},
-      {'lat': -22.945421885335964, 'lon': -42.692481134543144},
-      {'lat': -22.925229540814776, 'lon': -42.60956629545805},
-      {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo"},
-      {'lat': -22.93065437341688, 'lon': -42.06015056191806},
-      {'lat': -22.966538824055444, 'lon': -42.01591692976551},
-      {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo"},
-    ],
-    'color':'green'
-  }
-
-  var rio_markers = {
-    "coords": [
-      {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro", 'country':''},
-      {'lat': -22.967970024592375, 'lon': -42.88862988867872, 'name':'Maricá', 'country':''},
-      {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo", 'country':''}
-    ],
-  }
-
-//   map.on('popupopen', function(centerMarker) {
-//     var cM = map.project(centerMarker.popup._latlng);
-//     cM.y -= centerMarker.popup._container.clientHeight/2
-//     map.setView(map.unproject(cM),16, {animate: true});
-// });
-
-
-  // ADDING TRIPS TO MAP
-
-  var USE_ROUTING_API = false
+  {"name":"Netherlands",'lat':52.37403000,'lon':4.8896900},
+  {"name":"Denmark",'lat':55.6759400,'lon':12.56553},
+  {"name":"Belgium",'lat':50.85045,'lon':4.348783},
+  {"name":"Sweden",'lat':56.04673,'lon':12.69437},
   
-  var divIcon = L.divIcon({
-    className: 'div-icon',
-    iconSize: [15, 15],
-  });
-
-  var customIcon = L.icon({
-    iconUrl: '../images/marker.svg',
-    iconSize:     [38, 95], 
-  });
-    
-  var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline, rio_polyline];
-  var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers, rio_markers];
+  {"name":"Bulgaria",'lat':42.6975100,'lon':23.3241500},
+  {"name":"Serbia",'lat':44.8040100,'lon':20.4651300},
+  {"name":"Croatia",'lat':45.81444000,'lon':15.9779800},
+  {"name":"Slovenia",'lat':46.3691700,'lon':14.1136100},
   
-  if (!USE_ROUTING_API) {
-    trips_polyline.forEach(trip=>{
-      L.polyline(
-        trip.coords.map(item => [item.lat,item.lon]), 
-        {color: 'white', weight:7, opacity:0.7}
-        ).addTo(map);
-      L.polyline(
-        trip.coords.map(item => [item.lat,item.lon]), 
-        {color: trip.color}
-        ).addTo(map);
-    });
-  }
+  {"name":"Morocco",'lat':31.669746,'lon':-7.973328}
+]
+var asia_places = 
+    [
+  {"name":"Thailand",'lat':13.7539800,'lon':100.5014400},
+  {"name":"Myanmar",'lat':16.8052800,'lon':96.1561100},
+  {"name":"Hong Kong",'lat':22.2855200,'lon':114.1576900},
+  {"name":"Vietnam",'lat':21.0245000,'lon':105.8411700},
+  {"name":"Laos", 'lat': 19.882003512, 'lon': 102.1405166},
+  {"name":"Cambodia",'lat':11.5624500,'lon':104.9160100},
+  {"name":"Indonesia",'lat':-8.65,'lon':115.21667},
+  {"name":"Singapore",'lat':1.2896700,'lon':103.8500700}
+]
 
-  trips_markers.forEach(trip=>{
-      map.addLayer(L.layerGroup(
-                  trip.coords.map((item,index) => 
-                  L.marker([item.lat, item.lon], {icon:divIcon})
-                  .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+', '+item.country))
-                  ));
-              
-  });
+var world_places = countries.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
+var asia = asia_places.map(item => L.marker([item.lat, item.lon]).bindPopup(item.name))
 
+// EUROPE TRIPS DATA
+
+var suecia_polyline = {
+  "coords": [
+    {"lat":50.85045, "lon":4.348783, 'name':'Brussels'},
+    {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide'},
+    {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn'},
+    {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam"},
+    {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere'},
+    {'lat': 52.65503179660259, 'lon': 6.875491271940366, 'name':'Emlichheim'},
+    {'lat': 52.96608015540326, 'lon': 8.504115872005947, 'name':'Uhlhorn'},
+    {'lat': 53.53797179613342, 'lon': 10.010777261144359, 'name':'Hamburg'}, 
+    {'lat': 54.10161731279758, 'lon': 10.86615648077714, 'name': 'Grömitz'},
+    {'lat': 55.086038507659595, 'lon': 11.961258708985216, 'name':'Vordingborg'},
+    {'lat': 55.69344331855728, 'lon': 12.559649460460196, 'name':'Copenhagen'},
+    {'lat': 55.601896, 'lon': 12.9962475},
+    {'lat': 55.806410937687666, 'lon': 12.955778046535501, 'name':'Helsingborg'},
+    {"lat":56.04673 , "lon":12.69437},
+    {'lat': 55.88142919, 'lon': 12.479472847},
+    {'lat':55.6759400,'lon':12.56553},
+  ],
+  'color':'green'
+}
+
+var suecia_markers = {
+  "coords": [
+    {"lat":50.85045, "lon":4.348783, 'name':'Brussels', 'km':0, 'country':'Belgium'},
+    {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide', 'km':10, 'country':'Netherlands'},
+    {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn', 'km':10, 'country':'Netherlands'},
+    {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam", 'country':'Netherlands'},
+    {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere', 'country':'Netherlands'},
+    {'lat': 52.65503179660259, 'lon': 6.875491271940366, 'name':'Emlichheim', 'country':'Germany'},
+    {'lat': 52.96608015540326, 'lon': 8.504115872005947, 'name':'Uhlhorn', 'country':'Germany'},
+    {'lat': 53.53797179613342, 'lon': 10.010777261144359, 'name':'Hamburg', 'country':'Germany'}, 
+    {'lat': 54.10161731279758, 'lon': 10.86615648077714, 'name': 'Grömitz', 'km':900, 'country':'Germany'},
+    {'lat': 55.086038507659595, 'lon': 11.961258708985216, 'name':'Vordingborg', 'country':'Denmark'},
+    {'lat': 55.69344331855728, 'lon': 12.559649460460196, 'name':'Copenhagen', 'country':'Denmark'},
+    {'lat': 55.806410937687666, 'lon': 12.955778046535501, 'name':'Helsingborg', 'country':'Sweden'},
+    {'lat':55.6759400,'lon':12.56553, 'name':'Copenhagen', 'country':''},
+  ],
+  'color':'green'
+}
+
+
+var geneve_polyline = {
+  "coords": [
+    {'lat': 45.76879073586087, 'lon': 4.827875117075414},
+    {'lat': 45.78981167115057, 'lon': 5.144304389480467},
+    {'lat': 45.94525764514836, 'lon': 5.368856805249225},
+    {'lat': 45.825856401465614, 'lon': 5.619931779294883},
+    {'lat': 45.84884129344235, 'lon': 5.779328858594327},
+    {'lat': 46.09914220571156, 'lon': 5.826048692182086},
+    {'lat': 46.14100840083502, 'lon': 6.07389268032252},
+    {'lat': 46.198767990, 'lon': 6.1420200321, 'name':'Genebra'},
+    {'lat': 46.165409420484764, 'lon': 5.762395551884466},
+    {'lat': 46.063446607693926, 'lon': 5.315808907295474},
+    {'lat': 45.906539413908554, 'lon': 5.219003794521637},
+    {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+
+  ],
+  'color':'darkgreen'
+};
+
+var geneve_marker = {
+  "coords": [
+    {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+    {'lat': 45.78981167115057, 'lon': 5.144304389480467, 'name':'Jons', 'country':'France'},
+    {'lat': 46.198767990, 'lon': 6.1420200321,  'name':'Genebra', 'country':'Switzerland'},
+  ],
+  'color':'darkgreen'
+};
   
-  // ASIA TRIP
+var chartreuse_polyline = {
+  "coords": [
+    {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':"Lyon"},
+    {'lat': 45.58584800678515, 'lon': 5.287801373623045},
+    {'lat': 45.5699775487153, 'lon': 5.427602239260964, 'name':"StJeanSoudain"},
+    {'lat': 45.52840634449379, 'lon': 5.6923039071401735},
+    {'lat': 45.43656650605007, 'lon': 5.751958739052535},
+    {'lat': 45.389741737815044, 'lon': 5.735370383796675, 'name':'StLaurent'},
+    {'lat': 45.34991210549677, 'lon': 5.7839485294409885},
+    {'lat': 45.373289083477836, 'lon': 5.800885264170118, 'name':'Couvent'},
+    {'lat': 45.36769249073883, 'lon': 5.811835378953392, 'name': 'Grand Som'},
+  ],
+  'color':'green'
+}
 
-  polarstep_trip = get_polarsteps_trip();
-  // console.log(polarstep_trip)
-  var polarstep_marker = 
-    polarstep_trip.all_steps.map((item,index) => 
-      L.marker([item.location.lat, item.location.lon], {icon:divIcon})
-      .bindPopup('<strong>Step '+index+':</strong> '+item.location.full_detail));
+var chartreuse_marker = {
+  "coords": [
+    {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+    {'lat': 45.36769249073883, 'lon': 5.811835378953392, 'name':'Le Grand Som', 'country':'Alpes'},
+  ],
+  'color':'green'
+}
 
-  var asia_polyline = L.polyline(
-    polarstep_trip.all_steps.map(item =>[item.location.lat, item.location.lon]));
-  // map.fitBounds(asia_polyline.getBounds());
+var stEtienne_polyline = {
+  "coords": [
+    {'lat': 45.76879073586087, 'lon': 4.827875117075414,},
+    {'lat': 45.59198029578722, 'lon': 4.766975542021293},
+    {'lat': 45.439105765, 'lon': 4.388047578},
+    {'lat': 45.76879073586087, 'lon': 4.827875117075414},
+  ],
+  'color':'lightgreen'
+}
 
-  var plane_style = {'color':'black', 'dashArray': '5', 'opacity':0.8};
-  var transport_style = {'color':'blue', 'opacity':0.8};
-  var motorbike_style = {'color':'red', 'opacity':0.8};
+var stEtienne_markers = {
+  "coords": [
+    {'lat': 45.76879073586087, 'lon': 4.827875117075414, 'name':'Lyon', "country":"France"},
+    {'lat': 45.439105765, 'lon': 4.388047578, 'name':'Saint-Etienne', 'country':'France'},
+  ],
+  'color':'purple'
+}
 
-  var trenches = [
-    {'start':0, 'end':2, 'style':plane_style},
-    {'start':1, 'end':26, 'style':transport_style},
-    {'start':25, 'end':58, 'style':motorbike_style},
-    {'start':57, 'end':59, 'style':transport_style},
-    {'start':58, 'end':61, 'style':plane_style},
-    {'start':60, 'end':65, 'style':transport_style},
-    {'start':64, 'end':66, 'style':plane_style},
-    {'start':65, 'end':68, 'style':transport_style},
-    {'start':67, 'end':72, 'style':motorbike_style},
-    {'start':71, 'end':75, 'style':plane_style},
-   ]
+var loire_polyline = {
+  "coords": [
+    {'lat': 47.0643188, 'lon': -0.8827913, 'name':'Cholet', 'country':''},
+    {'lat': 47.25883330459712, 'lon': -0.0787703384809957},
+    {'lat': 47.23525271149641, 'lon': 0.0280897671379865, 'name':'Saumur', 'country':''},
+    {'lat': 47.23927161555011, 'lon': 0.17649169752213203, 'name':'Saumur', 'country':''},
+    {'lat': 47.38786925483467, 'lon': 0.6881933289343722},
+    {'lat': 47.41336949548184, 'lon': 0.9864522507992348},
+    {'lat': 47.47690754350151, 'lon': 1.15681219468061, 'name' : 'Amboise', 'country':''},
+  
+    {'lat': 47.58804904063447, 'lon': 1.3321037358737446, 'name':'Blois'},
+    {'lat': 47.61620825840323, 'lon': 1.5169875194941576, 'name':'Chambord'},
+    {'lat': 47.892615593840304, 'lon': 1.8880142217503961, 'name':'Orléans', 'country':''}
+  ],
+  'color':'green'
+}
 
-   trenches.forEach( trench => {
+var loire_markers = {
+  "coords": [
+    {'lat': 47.0643188, 'lon': -0.8827913, 'name':'Cholet', 'country':''},
+    {'lat': 47.23927161555011, 'lon': 0.17649169752213203, 'name':'Saumur', 'country':''},
+    {'lat': 47.47690754350151, 'lon': 1.15681219468061, 'name' : 'Amboise', 'country':''},
+    {'lat': 47.892615593840304, 'lon': 1.8880142217503961, 'name':'Orléans', 'country':''}
+  ],
+  'color':'green'
+}
+
+var rio_polyline = {
+  "coords": [
+    {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro"},
+    {'lat': -22.9309512477637, 'lon': -43.176862450709294},
+    {'lat': -22.90388772852338, 'lon': -43.17428598929821, 'name':'pracaXV'},
+    {'lat': -22.932299382920483, 'lon': -43.09883573474055, 'name':'charitas'},
+    {'lat': -22.943298928639614, 'lon': -43.05789076641154},
+    {'lat': -22.950328888419577, 'lon': -43.02716858702307},
+    {'lat': -22.962432768886035, 'lon': -43.03094739709266},
+    {'lat': -22.968255335888855, 'lon': -43.0065872020249},
+    {'lat': -22.967970024592375, 'lon': -42.88862988867872, 'name':'Maricá'},
+    {'lat': -22.945421885335964, 'lon': -42.692481134543144},
+    {'lat': -22.925229540814776, 'lon': -42.60956629545805},
+    {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo"},
+    {'lat': -22.93065437341688, 'lon': -42.06015056191806},
+    {'lat': -22.966538824055444, 'lon': -42.01591692976551},
+    {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo"},
+  ],
+  'color':'green'
+}
+
+var rio_markers = {
+  "coords": [
+    {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro", 'country':''},
+    {'lat': -22.967970024592375, 'lon': -42.88862988867872, 'name':'Maricá', 'country':''},
+    {'lat': -22.945022906339904, 'lon': -42.08840281918752, 'name':"Arraial do Cabo", 'country':''}
+  ],
+}
+
+// ADDING TRIPS TO MAP
+
+var USE_ROUTING_API = false
+
+var divIcon = L.divIcon({
+  className: 'div-icon',
+  iconSize: [15, 15],
+});
+
+var customIcon = L.icon({
+  iconUrl: '../images/marker.svg',
+  iconSize:     [38, 95], 
+});
+  
+var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline, rio_polyline];
+var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers, rio_markers];
+
+if (!USE_ROUTING_API) {
+  trips_polyline.forEach(trip=>{
     L.polyline(
-      polarstep_trip.all_steps.slice(trench.start,trench.end).map(item =>[item.location.lat, item.location.lon]),
+      trip.coords.map(item => [item.lat,item.lon]), 
       {color: 'white', weight:7, opacity:0.7}
       ).addTo(map);
     L.polyline(
-      polarstep_trip.all_steps.slice(trench.start,trench.end).map(item =>[item.location.lat, item.location.lon]),
-      trench.style)
-      .addTo(map);
+      trip.coords.map(item => [item.lat,item.lon]), 
+      {color: trip.color}
+      ).addTo(map);
   });
+}
 
-  var overlayMaps = {
-    "Countries": L.layerGroup(world_places),
-    // "Asia": L.layerGroup(asia),
-  };
+trips_markers.forEach(trip=>{
+    map.addLayer(L.layerGroup(
+                trip.coords.map((item,index) => 
+                L.marker([item.lat, item.lon], {icon:divIcon})
+                .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+', '+item.country))
+                ));
+            
+});
 
-  // ADDING CONTROL LAYERS
-  L.control.layers(baseMaps,overlayMaps,{collapsed:false}).addTo(map);   
-  map.addLayer(L.layerGroup(polarstep_marker));
-  // ADDING SCALE
-  L.control.scale({'imperial':false, maxWidth:200}).addTo(map);
+
+// ASIA TRIP
+
+polarstep_trip = get_polarsteps_trip();
+var polarstep_marker = 
+  polarstep_trip.all_steps.map((item,index) => 
+    L.marker([item.location.lat, item.location.lon], {icon:divIcon})
+    .bindPopup('<strong>Step '+index+':</strong> '+item.location.full_detail)
+  );
+
+var asia_polyline = L.polyline(
+  polarstep_trip.all_steps.map(item =>[item.location.lat, item.location.lon]));
+
+var plane_style = {'color':'black', 'dashArray': '5', 'opacity':0.8};
+var transport_style = {'color':'blue', 'opacity':0.8};
+var motorbike_style = {'color':'red', 'opacity':0.8};
+
+var trenches = [
+  {'start':0, 'end':2, 'style':plane_style},
+  {'start':1, 'end':26, 'style':transport_style},
+  {'start':25, 'end':58, 'style':motorbike_style},
+  {'start':57, 'end':59, 'style':transport_style},
+  {'start':58, 'end':61, 'style':plane_style},
+  {'start':60, 'end':65, 'style':transport_style},
+  {'start':64, 'end':66, 'style':plane_style},
+  {'start':65, 'end':68, 'style':transport_style},
+  {'start':67, 'end':72, 'style':motorbike_style},
+  {'start':71, 'end':75, 'style':plane_style},
+]
+
+trenches.forEach( trench => {
+  L.polyline(
+    polarstep_trip.all_steps.slice(trench.start,trench.end).map(item =>[item.location.lat, item.location.lon]),
+    {color: 'white', weight:7, opacity:0.7}
+    ).addTo(map);
+  L.polyline(
+    polarstep_trip.all_steps.slice(trench.start,trench.end).map(item =>[item.location.lat, item.location.lon]),
+    trench.style)
+    .addTo(map);
+});
+
+var overlayMaps = {
+  "Countries": L.layerGroup(world_places),
+  // "Asia": L.layerGroup(asia),
+};
+
+// ADDING CONTROL LAYERS
+L.control.layers(baseMaps,overlayMaps,{collapsed:false}).addTo(map);   
+map.addLayer(L.layerGroup(polarstep_marker));
+
+// ADDING SCALE
+L.control.scale({'imperial':false, maxWidth:200}).addTo(map);
+
+// ADDING LEGEND
+var legend = L.control({position: 'bottomright'});
+legend.onAdd = map => {
+
+  var div = L.DomUtil.create('div', 'map-legend')
+  var legend = [
+        {'name':'Bicycle', 'color':'green'},
+        {'name':'MotorBike', 'color':'red'},
+        {'name':'Bus/Boat', 'color':'blue'},
+        {'name':'Airplane', 'color':'black'},
+      ];
+  div.innerHTML = legend.reduce( (html,item) => 
+      html + '<div><i style="background: '+item.color+'"></i> ' + item.name + '</div>',''
+  );
+  return div;
+};
+
+legend.addTo(map);
   
-  // ADDING LEGEND
-  var legend = L.control({position: 'bottomright'});
-  legend.onAdd = map => {
+map.on('click', function(e) {
+  console.log(e.latlng);
+})
 
-    var div = L.DomUtil.create('div', 'map-legend')
-    var legend = [
-          {'name':'Bicycle', 'color':'green'},
-          {'name':'MotorBike', 'color':'red'},
-          {'name':'Bus/Boat', 'color':'blue'},
-          {'name':'Airplane', 'color':'black'},
-        ];
-    div.innerHTML = legend.reduce( (html,item) => 
-        html + '<div><i style="background: '+item.color+'"></i> ' + item.name + '</div>',''
-    );
-    return div;
-  };
-
-  legend.addTo(map);
-    
-  map.on('click', function(e) {
-    console.log(e.latlng);
-  })
-  // ROUTING
-  // 100 000 free requests
-  if (USE_ROUTING_API){
-    trips_polyline.forEach(trip=> {
-      L.Routing.control({
-        waypoints: trip.coords.map(item => L.latLng(item.lat,item.lon)),
-        router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"),
-        fitSelectedRoutes:false,
-        show:false,
-        addWaypoints:false,
-        draggableWaypoints:false,
-        createMarker:()=> {return false},
-        lineOptions:{
-          'styles':[{color: 'black', opacity: 0.15, weight: 9}, {color: 'white', opacity: 0.8, weight: 6}, {color: trip.color, opacity: 1, weight: 2}]
-          }
-      })
-      .addTo(map);
+// ROUTING
+// 100 000 free requests
+if (USE_ROUTING_API){
+  trips_polyline.forEach(trip=> {
+    L.Routing.control({
+      waypoints: trip.coords.map(item => L.latLng(item.lat,item.lon)),
+      router: L.Routing.mapbox("pk.eyJ1IjoiYW50b25pby1sZWJsYW5jIiwiYSI6ImNrYjNyeWJweTBuOTUybm55MG0yank2eGsifQ.6IQBrnpE9IbXYzawUROheQ"),
+      fitSelectedRoutes:false,
+      show:false,
+      addWaypoints:false,
+      draggableWaypoints:false,
+      createMarker:()=> {return false},
+      lineOptions:{
+        'styles':[{color: 'black', opacity: 0.15, weight: 9}, {color: 'white', opacity: 0.8, weight: 6}, {color: trip.color, opacity: 1, weight: 2}]
+        }
     })
-  }
+    .addTo(map);
+  })
+}
+
+function goToAsia(){
+  map.fitBounds(asia_polyline.getBounds());
+}
+
   // var motoTrip = {
   //   "coords": [
   //     {'lat': 20.9866677862, 'lon': 105.8633968, "name":"Hanoi"},
@@ -435,6 +434,3 @@ function mapInit(){
   //   ],
   //   'color':'green'
   // }
-
-
-}

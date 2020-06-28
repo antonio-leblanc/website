@@ -287,9 +287,10 @@ $p-color: lightgray;
 
 .tabs-container{
     display: flex;
-    align-items: flex-start;
+    // align-items: flex-start;
     justify-content:start;
-    min-height: 15rem;
+    width: 100%;
+    min-height: 17rem;
 }
 
 [data-tab-content]{
@@ -327,9 +328,8 @@ $job-tab-active-bg:rgb(22, 35, 53);
 }
 
 .job-tab-content{
-    display: inline-block;
-    width: 70%;
-    margin: 0  auto;
+    flex-grow: 1;
+    padding: 0 3rem;
 }
 
 
@@ -540,7 +540,8 @@ font-weight:bolder;
     font-family: 'Orbitron', sans-serif;
 }
 
-#travel-map { 
+#travel-map {
+    visibility: hidden;
     height: 75vh ; 
     width: 80% ;
     margin : 1rem auto 4rem ; 

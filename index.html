@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Nova+Mono&display=swap" rel="stylesheet">
 
+        <!-- Bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -112,7 +113,7 @@
         <p>Hello there!</p>
         <p>I'm Antonio, a fresh-graduate Mechanical Engineer who is passionate about learning and acquiring new skills.</p>
         <p>My professional goal is to specialize myself in the Technology Sector, and to make a positive impact on the world.</p>
-        <p>In order to live a fulfilled life, I do my best to find balance beetwen all these dimensions :</p>
+        <p>In order to live a fulfilled life, I do my best to find balance beetwen these dimensions :</p>
         <div class="styled-list">
         <ul>
           <li>Relationships</li>
@@ -137,9 +138,12 @@
         <div class="styled-list">
         <ul>
           <li>Deep Learning - <a href="https://www.tensorflow.org/" target= "_blank">TensorFlow</a></li>
+          <li>Satellite Imagery Analysis - <a href="https://earthengine.google.com/" target= "_blank">Earth Engine</a></li>
           <li>Software Development - <a href="https://angular.io/" target= "_blank">Angular</a></li>
           <li>HTML & (S)CSS</li>
           <li>JavaScript (ES6+)</li>
+
+          
         </ul>
         </div>
       </div>
@@ -221,13 +225,14 @@
       
       <div class="job-tab-content">
         <div id="sintecsys" class="active" data-tab-content>
-          <h3>Software Engineer <a href="https://sintecsys.com/en/home-en/" target="_blank">@ Sintecsys</a></h3>
+          <h3>Software Engineer <a href="https://sintecsys.com/" target="_blank">@ Sintecsys</a></h3>
           <p>Jundiaí, Brazil<br>Oct 2019 - Present</p>
           <div class="styled-list">
             <ul>
-              <li>Developing deep learning models for smoke detection in forest areas from real-time camera images</li>
-              <li>Software Developer</li>
-              <li>Data Base Administrator</li>
+              <li>We develop fire detection systems for environmental and agricultural areas</li>
+              <li>Developing deep learning models for smoke detection from real-time camera images - TensorFlow 2.0</li>
+              <li>Software Developer - Angular 8+</li>
+              <li>Data Base Administrator - PostgreSQL 12+</li>
             </ul>
           </div>
         </div>
@@ -433,8 +438,11 @@
     Travel
   </h1> 
   
+  <button onclick=goToAsia()> AsiaTrip </button>
+  <button onclick=goToEurope()> BicycleTrip </button>
+  
   <div>
-  <div id="travel-map"></div>
+    <div id="travel-map"></div>
   </div>
 
   <div id="asia-carousel" class="carousel slide my-carousel-container" data-ride="carousel">
