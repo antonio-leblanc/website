@@ -519,20 +519,23 @@ font-weight:bolder;
 }
 
 .my-carousel-container{
-    height: 80vh;
-    width: 90vw;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 2rem auto;
+    width: 90vw;
+    max-height: 80vh;
+    max-width: 1000px;
 }
 
 /* -- Travel -- */
 
 .carousel-item{
+    height: 100%;
+    width: 100%;
     img{
-        // height:80vh;
+        max-height: 100%;
+        width: 100%;
+        object-fit: contain;
+        margin: auto;
     }
 }
 
@@ -600,7 +603,7 @@ font-weight:bolder;
 
 
 .end {
-    background-color: rgba(255, 0, 0, 0.651);
+    background-color: rgba(89, 51, 158, 0.651);
     .text-mask{
         background-image: url(../images/travel.jpg);
         font-size: 18vw;

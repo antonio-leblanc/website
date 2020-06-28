@@ -306,7 +306,7 @@ polarstep_trip = get_polarsteps_trip();
 var polarstep_marker = 
   polarstep_trip.all_steps.map((item,index) => 
     L.marker([item.location.lat, item.location.lon], {icon:divIcon})
-    .bindPopup('<strong>Step '+index+':</strong> '+item.location.full_detail)
+    .bindPopup('<strong>Step '+(index+1)+':</strong> '+item.location.full_detail)
   );
 
 var asia_polyline = L.polyline(

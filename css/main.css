@@ -566,22 +566,27 @@ body {
 }
 
 .my-carousel-container {
-  height: 80vh;
-  width: 90vw;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: 2rem auto;
+  width: 90vw;
+  max-height: 80vh;
+  max-width: 1000px;
 }
 
 /* -- Travel -- */
+.carousel-item {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-item img {
+  max-height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: auto;
+}
+
 .travel {
   background-image: url(https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=827&q=80);
 }
@@ -648,7 +653,7 @@ body {
 }
 
 .end {
-  background-color: rgba(255, 0, 0, 0.651);
+  background-color: rgba(89, 51, 158, 0.651);
 }
 
 .end .text-mask {
