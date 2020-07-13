@@ -520,6 +520,7 @@ font-weight:bolder;
 
 .tri-subsection{
     width: 90%;
+    justify-content: space-around;
 }
 
 .my-carousel-container{
@@ -528,6 +529,16 @@ font-weight:bolder;
     width: 90vw;
     max-height: 80vh;
     max-width: 1000px;
+}
+
+.carousel-text{
+    position: absolute;
+    top:20px;
+    left:20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.609);
+    border-radius: 20px;
+    color:black;
 }
 
 /* -- Travel -- */
