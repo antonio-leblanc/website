@@ -536,7 +536,8 @@ font-weight:bolder;
     top:20px;
     left:20px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.609);
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 20px;
     color:black;
 }
@@ -674,6 +675,7 @@ font-weight:bolder;
 footer{
     margin: 0;
     padding: 0.5rem;
+    background-color: black;
 }
 
 

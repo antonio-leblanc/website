@@ -231,6 +231,25 @@ var loire_markers = {
   'color':'green'
 }
 
+var paris_polyline = {
+  "coords": [
+    {'lat': 47.96193417706334, 'lon': 1.8440715731041335, 'name':'Orléans', 'country':''},
+    {'lat': 48.221279808400865, 'lon': 1.9590425708623997},
+    {'lat': 48.430377576757515, 'lon': 2.151513691856755},
+    {'lat': 48.88131662603883, 'lon': 2.332986554671606}
+  ],
+  'color':'lightgreen'
+}
+
+var paris_markers = {
+  "coords": [
+    {'lat': 47.96193417706334, 'lon': 1.8440715731041335, 'name':'Orléans', 'country':''},
+    {'lat': 48.88131662603883, 'lon': 2.332986554671606, 'name':'Paris', 'country':''},
+
+  ],
+  'color':'green'
+}
+
 var rio_polyline = {
   "coords": [
     {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro"},
@@ -274,8 +293,8 @@ var customIcon = L.icon({
   iconSize:     [38, 95], 
 });
   
-var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline, rio_polyline];
-var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers, rio_markers];
+var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline, paris_polyline, rio_polyline];
+var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers, paris_markers, rio_markers];
 
 if (!USE_ROUTING_API) {
   trips_polyline.forEach(trip=>{
@@ -283,7 +302,7 @@ if (!USE_ROUTING_API) {
       trip.coords.map(item => [item.lat,item.lon]), 
       {color: 'white', weight:7, opacity:0.7}
       ).addTo(map);
-    L.polyline(
+      trip = L.polyline(
       trip.coords.map(item => [item.lat,item.lon]), 
       {color: trip.color}
       ).addTo(map);
@@ -291,13 +310,15 @@ if (!USE_ROUTING_API) {
 }
 
 trips_markers.forEach(trip=>{
-    map.addLayer(L.layerGroup(
-                trip.coords.map((item,index) => 
-                L.marker([item.lat, item.lon], {icon:divIcon})
-                .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+', '+item.country))
-                ));
-            
-});
+    map.addLayer(
+      L.layerGroup(
+        trip.coords.map((item,index) => 
+        L.marker([item.lat, item.lon], {icon:divIcon})
+        .bindPopup('<strong>Day '+(index)+':</strong> '+item.name+', '+item.country))
+      )
+    );
+  }
+);
 
 
 // ASIA TRIP
@@ -309,8 +330,6 @@ var polarstep_marker =
     .bindPopup('<strong>Step '+(index+1)+':</strong> '+item.location.full_detail)
   );
 
-var asia_polyline = L.polyline(
-  polarstep_trip.all_steps.map(item =>[item.location.lat, item.location.lon]));
 
 var plane_style = {'color':'black', 'dashArray': '5', 'opacity':0.8};
 var transport_style = {'color':'blue', 'opacity':0.8};
@@ -395,8 +414,34 @@ if (USE_ROUTING_API){
   })
 }
 
+
+var asia_polyline = L.polyline(
+  polarstep_trip.all_steps.map(item =>[item.location.lat, item.location.lon]));
+// [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline, rio_polyline];
+
+var suecia_polyline = L.polyline(
+  suecia_polyline.coords.map(item =>[item.lat, item.lon]));
+
 function goToAsia(){
   map.fitBounds(asia_polyline.getBounds());
+}
+
+function goToSweden(){
+  map.fitBounds(suecia_polyline.getBounds());
+}
+
+function goToFrance(){
+  map.fitBounds([
+    [49.24,  -1.78],
+    [44.74, 6.569]
+]);
+}
+
+function goToBrazil(){
+  map.fitBounds([
+    [-22.6189,  -43.419857],
+    [-23.125029, -41.93782]
+]);
 }
 
   // var motoTrip = {
