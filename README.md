@@ -1,1 +1,2 @@
-# website
+# Website
+![foto](./images/study.jpg)
