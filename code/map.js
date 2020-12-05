@@ -279,6 +279,45 @@ var rio_markers = {
   ],
 }
 
+var teresopolis_polyline = {
+  "coords": [
+    {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro"},
+    {'lat': -22.816520317551998, 'lon': -43.28838607312381},
+    {'lat': -22.672927504327323, 'lon': -43.286511543348105},
+    {'lat': -22.64720730179729, 'lon': -43.203423668026026},
+    {'lat': -22.657666619464827, 'lon': -43.087714762467016},
+    {'lat': -22.545066058510507, 'lon': -42.98660234920453},
+    {'lat': -22.490210924869007, 'lon': -43.00582896570772},
+    {'lat': -22.466251020573775, 'lon': -43.002052117158314},
+    {'lat': -22.462918520137812, 'lon': -42.98763142269696},
+    {'lat': -22.425943597573166, 'lon': -42.97942268482684, 'name':'Teresópolis'},
+    {'lat': -22.463035256448293, 'lon': -42.98718869974136},
+    {'lat': -22.466645458594694, 'lon': -43.00156647546921},
+    {'lat': -22.490120483936423, 'lon': -43.00453217207958},
+    {'lat': -22.545300170003156, 'lon': -42.98564780731858},
+    {'lat': -22.593580079507202, 'lon': -43.01561324392362},
+    {'lat': -22.66759489706324, 'lon': -42.98831701075013},
+    {'lat': -22.686186707896038, 'lon': -42.959699014403604},
+    {'lat': -22.77064745203801, 'lon': -42.922955574056886},
+    {'lat': -22.815607954188184, 'lon': -43.076089615241806},
+    {'lat': -22.88160620731699, 'lon': -43.11294502774226},
+    {'lat': -22.894104120179087, 'lon': -43.1227304989839},
+    {'lat': -22.90394673897713, 'lon': -43.17447214104028},
+    {'lat': -22.930867919534748, 'lon': -43.17701186811646},
+    {'lat': -22.933496375565934, 'lon': -43.186485491576896},
+  ],
+  'color':'lightgreen'
+}
+
+var teresopolis_markers = {
+  "coords": [
+    {'lat': -22.933542235044794, 'lon': -43.18650039265635, 'name':"Rio de Janeiro", 'country':''},
+    {'lat': -22.425943597573166, 'lon': -42.97942268482684, 'name':"Teresópolis", 'country':''},
+
+  ],
+}
+
+
 // ADDING TRIPS TO MAP
 
 var USE_ROUTING_API = false
@@ -293,8 +332,27 @@ var customIcon = L.icon({
   iconSize:     [38, 95], 
 });
   
-var trips_polyline = [suecia_polyline, geneve_polyline, loire_polyline, chartreuse_polyline, stEtienne_polyline, paris_polyline, rio_polyline];
-var trips_markers = [suecia_markers, geneve_marker, loire_markers, chartreuse_marker, stEtienne_markers, paris_markers, rio_markers];
+var trips_polyline = [
+  suecia_polyline,
+  geneve_polyline,
+  loire_polyline,
+  chartreuse_polyline,
+  stEtienne_polyline,
+  paris_polyline,
+  rio_polyline,
+  teresopolis_polyline
+];
+
+var trips_markers = [
+  suecia_markers,
+  geneve_marker,
+  loire_markers,
+  chartreuse_marker,
+  stEtienne_markers,
+  paris_markers,
+  rio_markers,
+  teresopolis_markers
+];
 
 if (!USE_ROUTING_API) {
   trips_polyline.forEach(trip=>{
