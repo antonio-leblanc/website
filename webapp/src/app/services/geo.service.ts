@@ -36,7 +36,7 @@ export class GeoService {
           0.002197265625
         ],
         // Values are x and y here instead of lat and long elsewhere.
-        bounds: L.Bounds([
+        bounds: new L.Bounds([
           [-180, -90],
           [180, 90]
         ])
@@ -48,6 +48,7 @@ export class GeoService {
       zoom: 2,
       maxZoom: 8,
       attributionControl:false,
+      zoomControl:false,
       crs: EPSG4326,
       maxBounds: [
         [-120, -220],
@@ -55,14 +56,13 @@ export class GeoService {
       ]
     });
   
-    var template =
-      '//gibs-{s}.earthdata.nasa.gov/wmts/epsg4326/best/' +
-      '{layer}/default/{time}/{tileMatrixSet}/{z}/{y}/{x}.{format}';
-  
- 
+    
+    
     let baseMaps = Object()
-
+    
     for (const product of GibsProducts) {
+      var template =
+        '//gibs-{s}.earthdata.nasa.gov/wmts/epsg4326/best/{layer}/default/{time}/{tileMatrixSet}/{z}/{y}/{x}.{format}';
       var layer = L.tileLayer(template, {
         layer: product.layer,
         tileMatrixSet: product.tileMatrixSet,
