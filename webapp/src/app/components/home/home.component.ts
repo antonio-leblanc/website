@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as L from 'leaflet';
+import { GeoService } from '../../services/geo.service';
+
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,9 @@ import * as L from 'leaflet';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private geo:GeoService) { }
 
-  ngOnInit(): void {
-    const myMap = L.map('map').setView([51.505, -0.09], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(myMap);
+  ngOnInit(){
+    this.geo.mapInit();
   }
 }
