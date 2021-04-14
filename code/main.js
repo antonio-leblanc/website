@@ -32,13 +32,14 @@ $(window).on("load",
 if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
 
   var prevScrollpos = window.pageYOffset;
+
   window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
+    
+    if (prevScrollpos > currentScrollPos){
       $("#header").css("top" , "0");
     } else {
       $("#header").css("top" , "-4rem");
-
     }
     prevScrollpos = currentScrollPos;
   }
