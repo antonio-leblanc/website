@@ -118,7 +118,7 @@ var suecia_polyline = {
 var suecia_markers = {
   "coords": [
     {"lat":50.85045, "lon":4.348783, 'name':'Brussels', 'km':0, 'country':'Belgium'},
-    {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide', 'km':10, 'country':'Netherlands'},
+    {'lat': 51.32969493475225, 'lon': 4.522708011202674, 'name':'Maria-ter-Heide', 'km':10, 'country':'Belgium'},
     {'lat': 52.145611242052944, 'lon': 4.703416128987584, 'name':'Alphen aan den Rijn', 'km':10, 'country':'Netherlands'},
     {'lat': 52.35936979782573, 'lon': 4.872050754763496, 'name':"Amsterdam", 'country':'Netherlands'},
     {'lat': 52.38255592268673, 'lon': 5.421426299023865, 'name':'Almere', 'country':'Netherlands'},
