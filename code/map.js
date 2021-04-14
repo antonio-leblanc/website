@@ -480,6 +480,51 @@ var asia_polyline = L.polyline(
 var suecia_polyline = L.polyline(
   suecia_polyline.coords.map(item =>[item.lat, item.lon]));
 
+
+let modisGeojson = getModisGeojson();
+console.log('MODIS', modisGeojson)
+
+// not working
+function formatSatelliteInfo(feature){
+  let infoHTML = ''
+  
+  let ct = 0;
+  let data =[
+    'acq_date',	
+    'satellite',
+    'daynight',	
+    'confidence',	
+    'brightness']
+  for (const [key, value] of Object.entries(feature)) {
+    if (data.includes(key)){
+      let col = (ct++ % 2) === 0 ? 'white' : '#cce2ed';
+      infoHTML+= `<div style="background-color:${col}"><strong>${key}:</strong> ${value}</div>`
+    }
+  }
+  return infoHTML
+}
+
+L.geoJSON(modisGeojson, {
+  pointToLayer: (feature, latlng) => {
+
+    var geojsonMarkerOptions = {
+      radius: 5,
+      fillColor: "#991229",
+      color: "#000",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.8
+  };
+  console.log|(feature)
+  let marker = L.circleMarker(latlng, geojsonMarkerOptions);
+  // marker.bindPopup(`${feature.satellite}`);
+  return marker
+  }
+}).addTo(map)
+
+
+
+// GOTO FUNCTIONS
 function goToAsia(){
   map.fitBounds(asia_polyline.getBounds());
 }
