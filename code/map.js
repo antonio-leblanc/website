@@ -490,12 +490,12 @@ function formatSatelliteInfo(feature){
   
   let ct = 0;
   let data =[
-    'acq_date',	
-    'satellite',
+    'ACQ_DATE',	
+    'SATELLITE',
     'daynight',	
     'confidence',	
     'brightness']
-  for (const [key, value] of Object.entries(feature)) {
+  for (const [key, value] of Object.entries(feature.properties)) {
     if (data.includes(key)){
       let col = (ct++ % 2) === 0 ? 'white' : '#cce2ed';
       infoHTML+= `<div style="background-color:${col}"><strong>${key}:</strong> ${value}</div>`
