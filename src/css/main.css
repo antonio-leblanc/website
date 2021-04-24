@@ -371,6 +371,12 @@ body {
 }
 
 /* ----------- Image - Videos --------- */
+.chart-container {
+  width: min(500px, 90vw);
+  margin: 0 auto 5rem;
+}
+
+/* ----------- Image - Videos --------- */
 .img-container {
   height: 400px;
   width: 400px;
