@@ -317,6 +317,46 @@ var teresopolis_markers = {
   ],
 }
 
+var nordeste_polyline = {
+  "coords": [
+    {'lat': -8.0144126, 'lon': -34.85132, 'name':"Olinda"},
+    {'lat': -8.813474, 'lon': -35.123759, 'name':'Praia do Porto'},
+    {'lat': -8.982223, 'lon': -35.191229, 'name':'Barra-Grande - Maragogi'},
+    {'lat': -8.982223, 'lon': -35.191229, 'name':'Barra-Grande - Maragogi'},
+    {'lat': -9.321562, 'lon': -35.428553, 'name':'Praia do Morro', 'country':'AL'},
+    
+    {'lat': -9.5101802, 'lon': -35.586618, 'name':'Praia de Ipioca'},
+    {'lat': -9.84597262, 'lon': -35.9045731, 'name':'Barra de São Miguel'},
+    {'lat': -10.157911, 'lon': -36.156506, 'name':'Batel - Barreiras'},
+    {'lat': -10.395554, 'lon': -36.472382, 'name':'Margem São Francisco'},
+    {'lat': -9.616285, 'lon': -37.811188, 'name':'Caninde São Francisco'},
+    {'lat': -10.426203, 'lon': -36.467751, 'name':'Brejo Grande'},
+    {'lat': -10.684918, 'lon': -36.830018, 'name':''},
+    {'lat': -10.9908302, 'lon': -37.0492904, 'name':'Aracaju'},
+
+    // -10.049729, -36.031232 marapé
+  ],
+  'color':'purple'
+}
+
+var nordeste_markers = {
+  "coords": [
+    {'lat': -8.0144126, 'lon': -34.85132, 'name':"Olinda", 'country':'PE'},
+    {'lat': -8.0144126, 'lon': -34.85132, 'name':"Olinda", 'country':'PE'},
+    {'lat': -8.813474, 'lon': -35.123759, 'name':'Praia do Porto', 'country':'PE'},
+    {'lat': -8.982223, 'lon': -35.191229, 'name':'Barra-Grande - Maragogi', 'country':'AL'},
+    {'lat': -8.982223, 'lon': -35.191229, 'name':'Barra-Grande - Maragogi', 'country':'AL'},
+    {'lat': -9.321562, 'lon': -35.428553, 'name':'Praia do Morro', 'country':'AL'},
+    {'lat': -9.5101802, 'lon': -35.586618, 'name':'Praia de Ipioca', 'country':'AL'},
+    {'lat': -9.84597262, 'lon': -35.9045731, 'name':'Barra de São Miguel', 'country':'AL'},
+    {'lat': -10.157911, 'lon': -36.156506, 'name':'Batel - Barreiras', 'country':'AL'},
+    {'lat': -10.157911, 'lon': -36.156506, 'name':'Batel - Barreiras', 'country':'AL'},
+    {'lat': -10.395554, 'lon': -36.472382, 'name':'Margem São Francisco', 'country':'AL'},
+    {'lat': -10.426203, 'lon': -36.467751, 'name':'Brejo Grande', 'country':'SE'},
+    {'lat': -10.426203, 'lon': -36.467751, 'name':'Brejo Grande', 'country':'SE'},
+    {'lat': -10.9908302, 'lon': -37.0492904, 'name':'Aracaju', 'country':'SE'},
+  ]
+}
 
 // ADDING TRIPS TO MAP
 
@@ -340,7 +380,8 @@ var trips_polyline = [
   stEtienne_polyline,
   paris_polyline,
   rio_polyline,
-  teresopolis_polyline
+  teresopolis_polyline,
+  nordeste_polyline
 ];
 
 var trips_markers = [
@@ -351,7 +392,8 @@ var trips_markers = [
   stEtienne_markers,
   paris_markers,
   rio_markers,
-  teresopolis_markers
+  teresopolis_markers,
+  nordeste_markers
 ];
 
 if (!USE_ROUTING_API) {
@@ -438,6 +480,7 @@ legend.onAdd = map => {
         {'name':'Bicycle', 'color':'green'},
         {'name':'MotorBike', 'color':'red'},
         {'name':'Bus/Boat', 'color':'blue'},
+        {'name':'Car', 'color':'purple'},
         {'name':'Airplane', 'color':'black'},
       ];
   div.innerHTML = legend.reduce( (html,item) => 
@@ -480,6 +523,8 @@ var asia_polyline = L.polyline(
 var suecia_polyline = L.polyline(
   suecia_polyline.coords.map(item =>[item.lat, item.lon]));
 
+var nordeste_polyline = L.polyline(
+  nordeste_polyline.coords.map(item =>[item.lat, item.lon]));
 
 let modisGeojson = getModisGeojson();
 console.log('MODIS', modisGeojson)
@@ -540,11 +585,15 @@ function goToFrance(){
 ]);
 }
 
-function goToBrazil(){
+function goToRj(){
   map.fitBounds([
     [-22.6189,  -43.419857],
     [-23.125029, -41.93782]
 ]);
+}
+
+function goToNordeste(){
+  map.fitBounds(nordeste_polyline.getBounds());
 }
 
   // var motoTrip = {
